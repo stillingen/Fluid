@@ -1704,3 +1704,8 @@ h4.slide-content {
 	}
 
 }
+/* Padding footer widget
+--------------------------------------------- */
+div.footer-widgets {
+    margin-top: 20px;
+}
