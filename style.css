@@ -1188,7 +1188,7 @@ Content Area
 
 .archive-pagination li a:hover,
 .archive-pagination li.active a {
-	background-color: #009DEF;
+	background-color: #f15123;
 }
 
 .entry-pagination a {
@@ -1703,10 +1703,4 @@ h4.slide-content {
 		padding-right: 5%;
 	}
 
-}
-
-/* Padding footer widget
---------------------------------------------- */
-div.footer-widgets {
-    margin-top: 20px;
 }

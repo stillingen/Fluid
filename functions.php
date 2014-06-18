@@ -3,8 +3,8 @@
 include_once( get_template_directory() . '/lib/init.php' );
 
 //* Child theme (do not remove)
-define( 'CHILD_THEME_NAME', 'Fluid' );
-define( 'CHILD_THEME_URL', '<http://www.studiopress.com/' );
+define( 'CHILD_THEME_NAME', ‘Fluid’ );
+define( 'CHILD_THEME_URL', 'http://www.studiopress.com/' );
 define( 'CHILD_THEME_VERSION', '2.0.1' );
 
 //* Enqueue Lato Google font
@@ -22,29 +22,6 @@ add_theme_support( 'genesis-responsive-viewport' );
 //* Add support for custom background
 add_theme_support( 'custom-background' );
 
-//* Add support for Woocommerce
-add_theme_support( 'woocommerce' );
-
-//* Register footer header widget
-function genesischild_footerwidgetheader() {
-
-    genesis_register_sidebar( array(
-    'id' => 'footerwidgetheader',
-    'name' => __( 'Footer Widget Header', 'Fluid' ),
-    'description' => __( 'This is for the Footer Widget Headline', 'Fluid' ),
-    ) );
-}
-add_action ('widgets_init','genesischild_footerwidgetheader');
-
-//Position footer header widget
-function genesischild_footerwidgetheader_position ()  {
-    echo '<div class="footerwidgetheader-container"><div class="wrap">';
-    genesis_widget_area ('footerwidgetheader');
-    echo '</div></div>';
- 
-}
- 
-add_action ('genesis_after_content_sidebar_wrap','genesischild_footerwidgetheader_position');
 
 //* Add support for 3-column footer widgets
 add_theme_support( 'genesis-footer-widgets', 3 );
@@ -72,7 +49,8 @@ function sk_home_featured() {
 		) );
 	}
 }
-//* Register full width widget for front page
+
+//* Register widget areas
 genesis_register_sidebar( array(
 	'id'          => 'home-top',
 	'name'        => __( 'Home - Top', 'Fluid' ),
