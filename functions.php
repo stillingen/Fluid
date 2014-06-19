@@ -91,4 +91,13 @@ genesis_register_sidebar( array(
 	'description' => __( 'This is the bottom section of the Home page.', 'Fluid' ),
 ) );
 
+//* Customize the credits
+add_filter( 'genesis_footer_creds_text', 'sp_footer_creds_text' );
+function sp_footer_creds_text() {
+	echo '<div class="creds"><p>';
+	echo 'Copyright &copy; ';
+	echo date('Y');
+	echo ' &middot; <a href="http://www.fluid.no">fluid.no</a>';
+	echo '</p></div>';
+}
 ?>
