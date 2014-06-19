@@ -1709,3 +1709,29 @@ h4.slide-content {
 div.footer-widgets {
     margin-top: 20px;
 }
+/* Post navigation styling
+------------------------------------------------------------ */
+
+.previous-post-link {
+width: 48%;
+float: left;
+}
+
+.next-post-link {
+width: 48%;
+float: right;
+text-align: right;
+}
+
+.single-post-nav img:hover {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+	filter: alpha(opacity=10);
+	-moz-opacity: 0.2;
+	-khtml-opacity: 0.2;
+	opacity: 0.2;
+	-webkit-transition: opacity .2s ease-in-out;
+	-moz-transition:    opacity .2s ease-in-out;
+	-ms-transition:     opacity .2s ease-in-out;
+	-o-transition:      opacity .2s ease-in-out;
+	transition:         opacity .2s ease-in-out;
+}

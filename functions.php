@@ -100,4 +100,30 @@ function sp_footer_creds_text() {
 	echo ' &middot; <a href="http://www.fluid.no">fluid.no</a>';
 	echo '</p></div>';
 }
+//* Adding next and previous navigation previews on post
+add_action('genesis_entry_footer', 'wpsites_image_nav_links', 25 );
+
+function wpsites_image_nav_links() {
+
+if( !is_singular('post') ) 
+      return;
+
+if( $prev_post = get_previous_post() ): 
+echo'<div class="single-post-nav previous-post-link">';
+echo'<h2>Forrige blogginnlegg</h2>';
+$prevpost = get_the_post_thumbnail( $prev_post->ID, 'medium', array('class' => 'pagination-previous')); 
+previous_post_link( '%link',"$prevpost", TRUE ); 
+previous_post_link( '<div class="prev-link">%link</div>', '%title' );
+echo'</div>';
+endif; 
+
+if( $next_post = get_next_post() ): 
+echo'<div class="single-post-nav next-post-link">';
+echo'<h2>Neste blogginnlegg</h2>';
+$nextpost = get_the_post_thumbnail( $next_post->ID, 'medium', array('class' => 'pagination-next')); 
+next_post_link( '%link',"$nextpost", TRUE );
+next_post_link( '<div class="next-link">%link</div>', '%title' );
+echo'</div>';
+endif; 
+} 
 ?>
