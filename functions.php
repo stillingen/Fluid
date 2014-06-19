@@ -44,7 +44,7 @@ function genesischild_footerwidgetheader_position ()  {
  
 }
  
-add_action ('genesis_after_content_sidebar_wrap','genesischild_footerwidgetheader_position');
+add_action ('genesis_before_footer','genesischild_footerwidgetheader_position', 1 );
 
 //* Add support for 3-column footer widgets
 add_theme_support( 'genesis-footer-widgets', 3 );
@@ -126,4 +126,10 @@ next_post_link( '<div class="next-link">%link</div>', '%title' );
 echo'</div>';
 endif; 
 } 
+//* Remove the post meta function
+remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
+
+//* Reordering redering order for footer header wiget(1), and footer widgets(10)
+remove_action( 'genesis_before_footer', 'genesis_footer_widget_areas' );
+add_action ('genesis_before_footer','genesis_footer_widget_areas', 10 );
 ?>
