@@ -12,7 +12,11 @@ add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
 function genesis_sample_google_fonts() {
 	wp_enqueue_style( 'google-font-lato', '//fonts.googleapis.com/css?family=Lato:300,700', array(), CHILD_THEME_VERSION );
 }
-
+//* Enqueue Woocommcerce script
+add_action( 'wp_enqueue_scripts', 'custom_load_custom_style_sheet' );
+function custom_load_custom_style_sheet() {
+	wp_enqueue_style( 'custom-stylesheet', CHILD_URL . '/woocommerce.css', array(), PARENT_THEME_VERSION );
+}
 //* Add HTML5 markup structure
 add_theme_support( 'html5' );
 
@@ -132,4 +136,38 @@ remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 //* Reordering redering order for footer header wiget(1), and footer widgets(10)
 remove_action( 'genesis_before_footer', 'genesis_footer_widget_areas' );
 add_action ('genesis_before_footer','genesis_footer_widget_areas', 10 );
+
+//* Removing woocommerce sub category thumbnails
+	function woocommerce_nested_category_products_content_section( $categories, $product_category_ids ) {
+		global $woocommerce, $wp_query, $wc_nested_category_layout;
+
+		$title = '';
+		$term = '';
+
+		// Build up the sub-category title, starting with the title of the current page category
+		if ( is_product_category() ) {
+			$term = get_term_by( 'slug', get_query_var( $wp_query->query_vars['taxonomy'] ), $wp_query->query_vars['taxonomy'] );
+			$title = '<span>' . $term->name . '</span>';
+		}
+
+		// add any saved up category titles, along with the current
+		foreach ( $categories as $title_cat ) {
+			$url = esc_attr( get_term_link( $title_cat ) );
+			$title .= ( $title ? ' - ' : '' ) . '<a href="' . $url . '">' . wptexturize( $title_cat->name ) . '</a>';
+		}
+
+		// subcategory header
+		echo wp_kses_post( apply_filters( 'wc_nested_category_layout_category_title_html', sprintf( '<h2>%s</h2>', $title ), $categories, $term ) );
+
+
+		// optional thumbnail/description of the category
+		$category = $categories[ count( $categories ) - 1 ];
+		
+		// Optional category description
+		if ( $category->description ) {
+			echo '<div class="subcategory-term_description term_description">' . wpautop( wptexturize( $category->description ) ) . '</div>';
+		}
+
+		woocommerce_get_template( 'loop/nested-category.php', array( 'woocommerce_product_category_ids' => $product_category_ids, 'category' => $title_cat ), '', $wc_nested_category_layout->plugin_path() . '/templates/' );
+	}
 ?>
