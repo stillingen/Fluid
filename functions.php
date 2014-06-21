@@ -12,11 +12,6 @@ add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
 function genesis_sample_google_fonts() {
 	wp_enqueue_style( 'google-font-lato', '//fonts.googleapis.com/css?family=Lato:300,700', array(), CHILD_THEME_VERSION );
 }
-//* Enqueue Woocommcerce script
-add_action( 'wp_enqueue_scripts', 'custom_load_custom_style_sheet' );
-function custom_load_custom_style_sheet() {
-	wp_enqueue_style( 'custom-stylesheet', CHILD_URL . '/woocommerce.css', array(), PARENT_THEME_VERSION );
-}
 //* Add HTML5 markup structure
 add_theme_support( 'html5' );
 
@@ -170,4 +165,19 @@ add_action ('genesis_before_footer','genesis_footer_widget_areas', 10 );
 
 		woocommerce_get_template( 'loop/nested-category.php', array( 'woocommerce_product_category_ids' => $product_category_ids, 'category' => $title_cat ), '', $wc_nested_category_layout->plugin_path() . '/templates/' );
 	}
+
+//* Enqueing and queing Woocommerce default style, to be able to load custom version from template direcotry
+add_filter( 'woocommerce_enqueue_styles', 'dequeue_woocommerce_general_stylesheet' );
+function dequeue_woocommerce_general_stylesheet( $enqueue_styles ) {
+	unset( $enqueue_styles['woocommerce-general'] );	
+	return $enqueue_styles;
+}
+function woocommerce_style_sheet() {
+wp_register_style( 'woocommerce', get_stylesheet_directory_uri() . '/woocommerce/woocommerce.css' );
+if ( class_exists( 'woocommerce' ) ) {
+wp_enqueue_style( 'woocommerce' );
+	}
+}
+add_action('wp_enqueue_scripts', 'woocommerce_style_sheet');
+
 ?>
