@@ -942,8 +942,8 @@ Site Navigation
 	border: none;
 	color: #999;
 	display: block;
-	padding: 28px 24px;
-	padding: 2.8rem 2.4rem;
+	padding: 12px 9px;
+	padding: 1.2rem .9rem;
 	position: relative;
 }
 
@@ -1779,18 +1779,8 @@ h4.slide-content {
 	top: 0;
 	width: 100%;
 	z-index: 999;
+	text-align: right;
 }
-
-.nav-secondary .genesis-nav-menu a {
-	padding: 20px;
-	padding: 2rem;
-}
-
-.nav-secondary .genesis-nav-menu .sub-menu a {
-	padding: 16px 20px;
-	padding: 1.6rem 2rem;
-}
-
 .nav-secondary a:hover,
 .nav-secondary .current-menu-item > a,
 .nav-secondary .menu-item-home > a,
