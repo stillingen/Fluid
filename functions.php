@@ -42,35 +42,11 @@ function genesischild_footerwidgetheader_position ()  {
     echo '</div></div>';
  
 }
- 
 add_action ('genesis_before_footer','genesischild_footerwidgetheader_position', 1 );
 
 //* Add support for 3-column footer widgets
 add_theme_support( 'genesis-footer-widgets', 3 );
 
-//* Register Home Slider widget area
-genesis_register_sidebar( array(
-	'id'			=> 'home-slider',
-	'name'			=> 'Home Slider',
-	'description'	=> 'This is the home slider section'
-) );
-
-
-add_action( 'genesis_after_header', 'sk_home_featured' );
-/**
- * Display Home Slider widget area's contents below Navigation on homepage.
- *
- * @author Sridhar Katakam
- * @link   http://sridharkatakam.com/full-width-soliloquy-slider-genesis/
- */
-function sk_home_featured() {
-	if ( is_home() || is_front_page() ) {
-		genesis_widget_area( 'home-slider', array(
-			'before'	=> '<div class="home-slider widget-area">',
-			'after'		=> '</div>',
-		) );
-	}
-}
 //* Register full width widget for front page
 genesis_register_sidebar( array(
 	'id'          => 'home-top',
@@ -99,6 +75,7 @@ function sp_footer_creds_text() {
 	echo ' &middot; <a href="http://www.fluid.no">fluid.no</a>';
 	echo '</p></div>';
 }
+
 //* Adding next and previous navigation previews on post
 add_action('genesis_entry_footer', 'wpsites_image_nav_links', 25 );
 
@@ -180,4 +157,46 @@ wp_enqueue_style( 'woocommerce' );
 }
 add_action('wp_enqueue_scripts', 'woocommerce_style_sheet');
 
+//* Register Home Slider widget area
+genesis_register_sidebar( array(
+	'id'          => 'home-slider',
+	'name'        => __( 'Home Slider', 'mpp' ),
+	'description' => __( 'This is the home slider widget area.', 'mpp' ),
+) );
+
+//* Add custom Slider + Header wrapper's opening div tag
+add_action( 'genesis_before_header', 'sk_home_opening_div' );
+function sk_home_opening_div() {
+
+	if (! is_front_page() )
+		return;
+
+	echo '<div class="slider-header-wrapper">';
+
+	genesis_widget_area( 'home-slider', array(
+		'before' => '<div id="home-slider">',
+		'after'  => '</div>',
+	) );
+
+}
+
+//* Add custom Slider + Header wrapper's closing div tag
+add_action( 'genesis_after_header', 'sk_home_closing_div' );
+function sk_home_closing_div() {
+
+	if (! is_front_page() )
+		return;
+
+	echo '</div>';
+}
+
+//* Enqueue sticky menu script
+add_action( 'wp_enqueue_scripts', 'sp_enqueue_script' );
+function sp_enqueue_script() {
+	wp_enqueue_script( 'sample-sticky-menu', get_bloginfo( 'stylesheet_directory' ) . '/lib/js/sticky.js', array( 'jquery' ), '1.0.0' );
+}
+
+//* Reposition the secondary navigation menu
+remove_action( 'genesis_after_header', 'genesis_do_subnav' );
+add_action( 'genesis_before', 'genesis_do_subnav' );
 ?>
