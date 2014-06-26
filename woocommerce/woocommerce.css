@@ -1038,7 +1038,6 @@ p.demo_store {
 .woocommerce ul.cart_list li img, .woocommerce ul.product_list_widget li img, .woocommerce-page ul.cart_list li img, .woocommerce-page ul.product_list_widget li img {
     float: right;
     margin-left: 4px;
-    width: 32px;
     height: auto;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
     -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
