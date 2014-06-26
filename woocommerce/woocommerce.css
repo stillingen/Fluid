@@ -1682,6 +1682,7 @@ button.single_add_to_cart_button.button.alt:hover {
     background-color: #333;
 
 /*Woocommerce nested category se more button styling*/
+
 .woocommerce-nested-category-layout-see-more.button.cta {
     border-radius: 3px;
     background: #009DEF;
@@ -1700,7 +1701,7 @@ button.single_add_to_cart_button.button.alt:hover {
 }
 
 div.woocommerce-nested-category-layout-see-more-container {
-    text-align: center;
+    text-align: center !important;
     margin-top: -50px;
     color: #fff;
     /* margin-right: auto; */
