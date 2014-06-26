@@ -73,5 +73,5 @@ $woocommerce_loop['loop'] = 0;
 </ul>
 </span>
 <div style="clear:both;">
-<div class="woocommerce-nested-category-layout-see-more-container"><?php if ( $see_more ) : ?><a class="woocommerce-nested-category-layout-see-more" href="<?php echo esc_attr( get_term_link( $category ) ) ?>"><?php echo apply_filters( 'wc_nested_category_layout_see_more_message', __( 'Se flere', WC_Nested_Category_Layout::TEXT_DOMAIN ), $category ); ?></a><?php endif; ?></div>
+<div class="woocommerce-nested-category-layout-see-more-container"><?php if ( $see_more ) : ?><a class="woocommerce-nested-category-layout-see-more button cta" href="<?php echo esc_attr( get_term_link( $category ) ) ?>"><?php echo apply_filters( 'wc_nested_category_layout_see_more_message', __( 'Se flere', WC_Nested_Category_Layout::TEXT_DOMAIN ), $category ); ?></a><?php endif; ?></div>
 </div>
