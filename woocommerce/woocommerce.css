@@ -498,20 +498,22 @@ p.demo_store {
 }
 .woocommerce #content nav.woocommerce-pagination ul, .woocommerce nav.woocommerce-pagination ul, .woocommerce-page #content nav.woocommerce-pagination ul, .woocommerce-page nav.woocommerce-pagination ul {
     display: inline-block;
-    white-space: nowrap;
     padding: 0;
     clear: both;
-    border: 1px solid #e0dadf;
     border-right: 0;
-    margin: 1px;
+    font-size: 14px;
+    font-size: 1.4rem;
+
 }
 .woocommerce #content nav.woocommerce-pagination ul li, .woocommerce nav.woocommerce-pagination ul li, .woocommerce-page #content nav.woocommerce-pagination ul li, .woocommerce-page nav.woocommerce-pagination ul li {
-    border-right: 1px solid #e0dadf;
-    padding: 0;
-    margin: 0;
-    float: left;
-    display: inline;
-    overflow: hidden;
+    background-color: #333;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 12px;
+    padding: 0.8rem 1.2rem;
+
 }
 .woocommerce #content nav.woocommerce-pagination ul li a, .woocommerce #content nav.woocommerce-pagination ul li span, .woocommerce nav.woocommerce-pagination ul li a, .woocommerce nav.woocommerce-pagination ul li span, .woocommerce-page #content nav.woocommerce-pagination ul li a, .woocommerce-page #content nav.woocommerce-pagination ul li span, .woocommerce-page nav.woocommerce-pagination ul li a, .woocommerce-page nav.woocommerce-pagination ul li span {
     margin: 0;
@@ -522,10 +524,11 @@ p.demo_store {
     padding: .5em;
     min-width: 1em;
     display: block;
+    
 }
 .woocommerce #content nav.woocommerce-pagination ul li a:focus, .woocommerce #content nav.woocommerce-pagination ul li a:hover, .woocommerce #content nav.woocommerce-pagination ul li span.current, .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current, .woocommerce-page #content nav.woocommerce-pagination ul li a:focus, .woocommerce-page #content nav.woocommerce-pagination ul li a:hover, .woocommerce-page #content nav.woocommerce-pagination ul li span.current, .woocommerce-page nav.woocommerce-pagination ul li a:focus, .woocommerce-page nav.woocommerce-pagination ul li a:hover, .woocommerce-page nav.woocommerce-pagination ul li span.current {
-    background: #f7f6f7;
-    color: #998896;
+    color: #009DEF;
+
 }
 
 .woocommerce a.added_to_cart, .woocommerce-page a.added_to_cart {
@@ -1677,6 +1680,31 @@ button.single_add_to_cart_button.button.alt {
 
 button.single_add_to_cart_button.button.alt:hover {
     background-color: #333;
+
+/*Woocommerce nested category se more button styling*/
+.woocommerce-nested-category-layout-see-more.button.cta {
+    border-radius: 3px;
+    background: #009DEF;
+    color: #000;
+    padding: 16px 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    
+}
+
+.woocommerce-nested-category-layout-see-more.button.cta:hover {
+    background: #333;
+    color: #fff;
+}
+
+div.woocommerce-nested-category-layout-see-more-container {
+    text-align: center;
+    margin-top: -50px;
+    color: #fff;
+    /* margin-right: auto; */
+}
 }
 div.quantity.buttons_added {
 	padding-top: 15px;
