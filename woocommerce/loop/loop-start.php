@@ -8,5 +8,4 @@
  */
 ?>
 <span itemscope itemtype="http://schema.org/ItemList">
-<meta itemprop="mainContentOfPage" content="true"/>
 <ul class="products">
