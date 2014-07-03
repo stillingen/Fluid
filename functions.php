@@ -109,6 +109,9 @@ remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 remove_action( 'genesis_before_footer', 'genesis_footer_widget_areas' );
 add_action ('genesis_before_footer','genesis_footer_widget_areas', 10 );
 
+/* Woocommerce customization
+--------------------------------------------- */
+
 //* Removing woocommerce sub category thumbnails
 	function woocommerce_nested_category_products_content_section( $categories, $product_category_ids ) {
 		global $woocommerce, $wp_query, $wc_nested_category_layout;
@@ -157,6 +160,9 @@ wp_enqueue_style( 'woocommerce' );
 }
 add_action('wp_enqueue_scripts', 'woocommerce_style_sheet');
 
+//* Removing woocommerce breadcrums
+remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0);
+
 //* Register Home Slider widget area
 genesis_register_sidebar( array(
 	'id'          => 'home-slider',
@@ -199,4 +205,60 @@ function sp_enqueue_script() {
 //* Reposition the secondary navigation menu
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 add_action( 'genesis_before', 'genesis_do_subnav' );
+
+
+add_filter( 'wp_nav_menu_items', 'custom_nav_item', 10, 2 );
+/**
+ * Callback for Genesis 'wp_nav_menu_items' filter.
+ * 
+ * Add custom left nav item to Genesis primary menu.
+ * 
+ * @package Genesis
+ * @category Nav Menu
+ * @author Ryan Meier http://www.rfmeier.net
+ * 
+ * @param string $menu The menu html
+ * @param stdClass $args the current menu args
+ * @return string $menu The menu html
+ */
+function custom_nav_item( $menu, $args ){
+        
+    // make sure we are in the primary menu
+    if ( 'primary' != $args->theme_location )
+    	return $menu;
+    
+    // see if a nav extra was already specified with Theme options
+    if( genesis_get_option( 'nav_extras' ) )
+            return $menu;
+    
+    if ( function_exists('yoast_breadcrumb') ) {
+      $menu = '<li class="left your-custom-code-class"><span>'.yoast_breadcrumb('<p id="breadcrumbs">','</p>').'</span></li>' . $menu;
+    }
+    
+    // return the menu
+    return $menu;
+        
+}
+// Filter the title with a custom function
+add_filter('genesis_seo_title', 'wap_site_title' );
+
+// Add additional custom style to site header
+function wap_site_title( $title ) {
+
+    	// Change $custom_title text as you wish
+	$custom_title = '<span class="custom-title">Fluid</span>';
+
+	// Don't change the rest of this on down
+
+	// If we're on the front page or home page, use `h1` heading, otherwise us a `p` tag
+	$tag = ( is_home() || is_front_page() ) ? 'h1' : 'p';
+
+	// Compose link with title
+	$inside = sprintf( '<a href="%s" title="%s">%s</a>', trailingslashit( home_url() ), esc_attr( get_bloginfo( 'name' ) ), $custom_title );
+
+	// Wrap link and title in semantic markup
+	$title = sprintf ( '<%s class="site-title" itemprop="headline">%s</%s>', $tag, $inside, $tag );
+	return $title;
+
+}
 ?>
