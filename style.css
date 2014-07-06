@@ -826,11 +826,11 @@ Site Header
 	background-color: #fff;
 }
 
-.site-header .wrap {
+/*.site-header .wrap {
 	padding: 40px 0;
 	padding: 4rem 0;
 }
-
+*/
 /* Title Area
 --------------------------------------------- */
 
@@ -1083,8 +1083,8 @@ Content Area
 }
 
 .entry-content a {
-	border-bottom: 1px solid #ddd;
-	color: #f15123;
+	border-bottom: 1px solid #009DEF;
+	color: #009DEF;
 }
 
 .entry-content a:hover {
@@ -1569,6 +1569,7 @@ Media Queries
 	.footer-widgets-1 {
 		margin: 0;
 	}
+	
 
 }
 
