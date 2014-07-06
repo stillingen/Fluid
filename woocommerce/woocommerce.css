@@ -1135,7 +1135,6 @@ p.demo_store {
     vertical-align: top;
 }
 .woocommerce .cart-collaterals .cart_totals table small, .woocommerce-page .cart-collaterals .cart_totals table small {
-    display: block;
     color: #777;
 }
 .woocommerce .cart-collaterals .cart_totals table select, .woocommerce-page .cart-collaterals .cart_totals table select {
@@ -1708,4 +1707,9 @@ div.woocommerce-nested-category-layout-see-more-container {
 }
 div.quantity.buttons_added {
 	padding-top: 15px;
+}
+
+/*Woocommerce Cart page styling - overriding default styling*/
+div.cart_totals {
+    text-align: left !important;
 }
