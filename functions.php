@@ -261,4 +261,10 @@ function wap_site_title( $title ) {
 	return $title;
 
 }
+//* Forcing read more link regardless off excerpt length
+function themprefix_excerpt_read_more_link($output) {
+    global $post;
+    return $output . ' <a href="' . get_permalink($post->ID) . '" class="more-link" title="Les mer">Les mer</a>';
+}
+add_filter( 'the_excerpt', 'themprefix_excerpt_read_more_link' );
 ?>
