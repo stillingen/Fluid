@@ -7,11 +7,6 @@ define( 'CHILD_THEME_NAME', 'Fluid' );
 define( 'CHILD_THEME_URL', '<http://www.studiopress.com/' );
 define( 'CHILD_THEME_VERSION', '2.0.1' );
 
-//* Enqueue Lato Google font
-add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
-function genesis_sample_google_fonts() {
-	wp_enqueue_style( 'google-font-lato', '//fonts.googleapis.com/css?family=Lato:300,700', array(), CHILD_THEME_VERSION );
-}
 //* Add HTML5 markup structure
 add_theme_support( 'html5' );
 
