@@ -165,35 +165,26 @@ remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0
 
 //* Register Home Slider widget area
 genesis_register_sidebar( array(
-	'id'          => 'home-slider',
-	'name'        => __( 'Home Slider', 'mpp' ),
-	'description' => __( 'This is the home slider widget area.', 'mpp' ),
+	'id'			=> 'home-slider',
+	'name'			=> 'Home Slider',
+	'description'	=> 'This is the home slider section'
 ) );
 
-//* Add custom Slider + Header wrapper's opening div tag
-add_action( 'genesis_before_header', 'sk_home_opening_div' );
-function sk_home_opening_div() {
 
-	if (! is_front_page() )
-		return;
-
-	echo '<div class="slider-header-wrapper">';
-
-	genesis_widget_area( 'home-slider', array(
-		'before' => '<div id="home-slider">',
-		'after'  => '</div>',
-	) );
-
-}
-
-//* Add custom Slider + Header wrapper's closing div tag
-add_action( 'genesis_after_header', 'sk_home_closing_div' );
-function sk_home_closing_div() {
-
-	if (! is_front_page() )
-		return;
-
-	echo '</div>';
+add_action( 'genesis_after_header', 'sk_home_featured' );
+/**
+ * Display Home Slider widget area's contents below Navigation on homepage.
+ *
+ * @author Sridhar Katakam
+ * @link   http://sridharkatakam.com/full-width-soliloquy-slider-genesis/
+ */
+function sk_home_featured() {
+	if ( is_home() || is_front_page() ) {
+		genesis_widget_area( 'home-slider', array(
+			'before'	=> '<div class="home-slider widget-area">',
+			'after'		=> '</div>',
+		) );
+	}
 }
 
 //* Enqueue sticky menu script
@@ -230,11 +221,6 @@ function custom_nav_item( $menu, $args ){
     // see if a nav extra was already specified with Theme options
     if( genesis_get_option( 'nav_extras' ) )
             return $menu;
-    
-    if ( function_exists('yoast_breadcrumb') ) {
-      $menu = '<li class="left your-custom-code-class"><span>'.yoast_breadcrumb('<p id="breadcrumbs">','</p>').'</span></li>' . $menu;
-    }
-    
     // return the menu
     return $menu;
         
