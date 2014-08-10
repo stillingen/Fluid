@@ -261,10 +261,36 @@ function wap_site_title( $title ) {
 	return $title;
 
 }
-//* Forcing read more link regardless off excerpt length
-function themprefix_excerpt_read_more_link($output) {
-    global $post;
-    return $output . ' <a href="' . get_permalink($post->ID) . '" class="more-link" title="Les mer">Les mer</a>';
+// Force Excerpts length to 30 caracters
+add_filter( 'excerpt_length', 'change_excerpt_length' );
+function change_excerpt_length($length) {
+    return 30; 
 }
-add_filter( 'the_excerpt', 'themprefix_excerpt_read_more_link' );
+// Add Read More Link to Excerpts
+add_filter('excerpt_more', 'get_read_more_link');
+add_filter( 'the_content_more_link', 'get_read_more_link' );
+function get_read_more_link() {
+   return '...&nbsp;<a href="' . get_permalink() . '">[Les&nbsp;mer]</a>';
+}
+/* Manipulate the featured image */
+add_action( 'genesis_post_content', 'ibfy_post_image', 8 );
+function ibfy_post_image() {
+global $post;
+    if ( is_page() )
+        return; // Make pages act normal
+ 
+    //setup thumbnail image args to be used with genesis_get_image();
+    $size = 'medium'; // Change this to whatever add_image_size you want
+    $default_attr = array(
+            'class' => "alignright attachment-$size $size",
+            'alt'   => $post->post_title,
+            'title' => $post->post_title,
+        );
+ 
+    // This is the most important part!  Checks to see if the post has a Post Thumbnail assigned to it. You can delete the if conditional if you want and assume that there will always be a thumbnail
+    if ( has_post_thumbnail() && is_home() ) {
+        printf( '<a href="%s" title="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), genesis_get_image( array( 'size' => $size, 'attr' => $default_attr ) ) );
+    }
+ 
+}
 ?>
