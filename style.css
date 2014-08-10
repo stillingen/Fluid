@@ -62,8 +62,9 @@
 		- max-width: 767px
 
 */
-
-
+/* Import Fonts
+------------------------------------------------------------ */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 /*
 HTML5 Reset
 ---------------------------------------------------------------------------------------------------- */
@@ -135,7 +136,7 @@ html {
 body {
 	background-color: #f5f5f5;
 	color: #666;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 	font-size: 1.6rem;
 	font-weight: 300;
@@ -237,7 +238,7 @@ h4,
 h5,
 h6 {
 	color: #333;
-	font-family: Lato, sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	line-height: 1.2;
 	margin: 0 0 16px;
@@ -653,7 +654,7 @@ img.alignright,
 
 .author-box-title {
 	color: #333;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 	font-size: 1.6rem;
 	margin-bottom: 4px;
@@ -836,7 +837,7 @@ Site Header
 
 .title-area {
 	float: left;
-	font-family: Lato, sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	padding: 16px 0;
 	padding: 1.6rem 0;
@@ -928,7 +929,7 @@ Site Navigation
 .genesis-nav-menu {
 	clear: both;
 	color: #999;
-	font-family: Lato, sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	line-height: 1.5;
 	width: 100%;
 }
@@ -1692,7 +1693,7 @@ h2.slide-title {
 	color: #fff;
 	margin-bottom: 30px;
 	text-transform: uppercase;
-	font-family: 'Arvo', serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: normal;
 	letter-spacing: 2px;
 }
@@ -1713,7 +1714,7 @@ h4.slide-content {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	margin-top: 30px;
-	font-family: 'Arvo', serif;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .soliloquy-container a.button:hover {
@@ -1808,7 +1809,7 @@ Left Aligned Primary Nav Extra
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 30px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     
 }
 
