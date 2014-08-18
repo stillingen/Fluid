@@ -839,8 +839,8 @@ Site Header
 	float: left;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
-	padding: 16px 0;
-	padding: 1.6rem 0;
+	padding: 15px 0;
+	padding: 1.5rem 0;
 	width: 320px;
 }
 
@@ -864,8 +864,8 @@ Site Header
 
 .site-description {
 	color: #999;
-	font-size: 16px;
-	font-size: 1.6rem;
+	font-size: 15px;
+	font-size: 1.5rem;
 	font-weight: 300;
 	line-height: 1;
 	margin-bottom: 0;
@@ -887,13 +887,13 @@ Site Header
 /* Logo, hide text */
 
 .header-image .site-header .wrap {
-	background: url(images/logo.png) no-repeat left;
+	background: url(images/logo-240.png) no-repeat left;
 	padding: 0;
 }
 
 .header-image .site-title a {
 	float: left;
-	min-height: 164px;
+	min-height: 80px;
 	width: 100%;
 }
 
@@ -911,8 +911,8 @@ Site Header
 }
 
 .header-image .site-header .widget-area {
-	padding: 40px 0;
-	padding: 4rem 0;
+	padding: 15px 0;
+	padding: 1.5rem 0;
 }
 
 .site-header .search-form {
@@ -1486,18 +1486,14 @@ Media Queries
 	.sidebar-sidebar-content .content-sidebar-wrap,
 	.site-header .widget-area,
 	.site-inner,
-	.title-area,
-	.wrap {
+	.title-area, {
 		width: 100%;
 	}
 
 	.site-header .wrap {
-		padding: 20px 0;
-		padding: 2rem 0;
+		padding: 10px 0;
+		padding: 1rem 0;
 	}
-
-	.header-image .site-header .wrap {
-		background-position: center top;
 	}
 
 	.site-inner {
@@ -1575,6 +1571,11 @@ Media Queries
 }
 
 @media only screen and (max-width: 767px) {
+
+	.header-image .site-header .wrap {
+	background: url(images/logo-160.png) no-repeat left;
+	margin-left: 10px;
+}
 
 	.five-sixths,
 	.four-sixths,
