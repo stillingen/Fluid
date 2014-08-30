@@ -179,7 +179,7 @@ p.demo_store {
     padding: 0;
 }
 .woocommerce #content div.product p.price, .woocommerce #content div.product span.price, .woocommerce div.product p.price, .woocommerce div.product span.price, .woocommerce-page #content div.product p.price, .woocommerce-page #content div.product span.price, .woocommerce-page div.product p.price, .woocommerce-page div.product span.price {
-    color: #85ad74;
+    color: #009DEF;
     font-size: 1.25em;
 }
 .woocommerce #content div.product p.price ins, .woocommerce #content div.product span.price ins, .woocommerce div.product p.price ins, .woocommerce div.product span.price ins, .woocommerce-page #content div.product p.price ins, .woocommerce-page #content div.product span.price ins, .woocommerce-page div.product p.price ins, .woocommerce-page div.product span.price ins {
@@ -193,7 +193,7 @@ p.demo_store {
     font-size: .92em;
 }
 .woocommerce #content div.product .stock, .woocommerce div.product .stock, .woocommerce-page #content div.product .stock, .woocommerce-page div.product .stock {
-    color: #85ad74;
+    color: #009DEF
 }
 .woocommerce #content div.product .out-of-stock, .woocommerce div.product .out-of-stock, .woocommerce-page #content div.product .out-of-stock, .woocommerce-page div.product .out-of-stock {
     color: red;
@@ -469,7 +469,7 @@ p.demo_store {
     display: block;
 }
 .woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price {
-    color: #85ad74;
+    color: #009DEF;
     display: block;
     font-weight: 400;
     margin-bottom: .5em;
@@ -1669,7 +1669,7 @@ ul.products li.product a img:hover {
 
 ul.products li.product a h3:hover,
 a.add_to_cart_button.button:hover{
-    color: #0d72c7
+    color: #fff
 }
 /* Custom Woocommerce styling : buttons
 --------------------------------------------- */
