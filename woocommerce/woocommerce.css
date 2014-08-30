@@ -453,7 +453,7 @@ p.demo_store {
     height: auto;
     display: block;
     margin: 0 0 8px;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
+    /*box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);*/
     -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
     -webkit-transition: all ease-in-out .2s;
     -moz-transition: all ease-in-out .2s;
@@ -1645,7 +1645,6 @@ div.product div.images a img,
 #content div.product div.images a img,
 ul.products li.product a img {
     background-color: #fff;
-    border: 1px solid #eaeaea;
     display: block;
     height: auto;
     width: 100%;
