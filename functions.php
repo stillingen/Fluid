@@ -220,28 +220,7 @@ function custom_nav_item( $menu, $args ){
     return $menu;
         
 }
-// Filter the title with a custom function
-add_filter('genesis_seo_title', 'wap_site_title' );
 
-// Add additional custom style to site header
-function wap_site_title( $title ) {
-
-    	// Change $custom_title text as you wish
-	$custom_title = '<span class="custom-title">Fluid</span>';
-
-	// Don't change the rest of this on down
-
-	// If we're on the front page or home page, use `h1` heading, otherwise us a `p` tag
-	$tag = ( is_home() || is_front_page() ) ? 'h1' : 'p';
-
-	// Compose link with title
-	$inside = sprintf( '<a href="%s" title="%s">%s</a>', trailingslashit( home_url() ), esc_attr( get_bloginfo( 'name' ) ), $custom_title );
-
-	// Wrap link and title in semantic markup
-	$title = sprintf ( '<%s class="site-title" itemprop="headline">%s</%s>', $tag, $inside, $tag );
-	return $title;
-
-}
 // Force Excerpts length to 30 caracters
 add_filter( 'excerpt_length', 'change_excerpt_length' );
 function change_excerpt_length($length) {
