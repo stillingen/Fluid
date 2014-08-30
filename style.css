@@ -860,6 +860,7 @@ Site Header
 .site-title a,
 .site-title a:hover {
 	color: #333;
+	visibility: hidden;
 }
 
 .site-description {
@@ -888,7 +889,6 @@ Site Header
 
 .header-image .site-header .wrap {
 	background: url(images/logo-240.png) no-repeat left;
-	padding: 0;
 }
 
 .header-image .site-title a {
@@ -1497,8 +1497,8 @@ Media Queries
 	}
 
 	.site-inner {
-		padding-left: 5%;
-		padding-right: 5%;
+		padding-left: 5px;
+		padding-right: 5px;
 	}
 
 	.archive-description,
@@ -1828,4 +1828,15 @@ div.woocommerce-nested-category-layout-see-more-container {
 }
 div.quantity.buttons_added {
 	padding-top: 15px;
+}
+
+/* Global elements custom styling
+--------------------------------------------- */
+.genesis-nav-menu {
+	text-align: right !important;
+	padding-right: 5px;
+
+}
+aside.widget-area.header-widget-area {
+    width: auto !important;
 }
