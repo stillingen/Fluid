@@ -1061,12 +1061,39 @@ Site Navigation
 
 /* Secondary Navigation
 --------------------------------------------- */
-
+ 
 .nav-secondary {
-	background-color: #fff;
+	background-color: #333;
+	display: none;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+	text-align: right;
+	line-height: 0.1;
+}
+.nav-secondary a:hover,
+.nav-secondary .current-menu-item > a,
+.nav-secondary .menu-item-home > a,
+.nav-secondary .menu-item-home > a:hover {
+	color: #fff;
 }
 
+.nav-secondary .sub-menu a:hover {
+	color: #333;
+}
 
+.nav-secondary .sticky-right {
+	float: right;
+}
+
+@media only screen and (max-width: 767px) {
+
+	.nav-secondary .sticky-right {
+		float: none;
+	}
+
+}
 /*
 Content Area
 ---------------------------------------------------------------------------------------------------- */
@@ -1744,38 +1771,7 @@ h3.slide-content {
 
 /* Secondary Navigation styling for sticky menu
 --------------------------------------------- */
- 
-.nav-secondary {
-	background-color: #333;
-	display: none;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 999;
-	text-align: right;
-}
-.nav-secondary a:hover,
-.nav-secondary .current-menu-item > a,
-.nav-secondary .menu-item-home > a,
-.nav-secondary .menu-item-home > a:hover {
-	color: #fff;
-}
 
-.nav-secondary .sub-menu a:hover {
-	color: #333;
-}
-
-.nav-secondary .sticky-right {
-	float: right;
-}
-
-@media only screen and (max-width: 767px) {
-
-	.nav-secondary .sticky-right {
-		float: none;
-	}
-
-}
 
 /* Styling for primary menu
 --------------------------------------------- */
