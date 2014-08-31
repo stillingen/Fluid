@@ -4,20 +4,6 @@
 .nobr {
     white-space: nowrap;
 }
-@font-face {
-    font-family: star;
-    src: url(../fonts/star.eot);
-    src: url(../fonts/star.eot?#iefix) format('embedded-opentype'), url(../fonts/star.woff) format('woff'), url(../fonts/star.ttf) format('truetype'), url(../fonts/star.svg#star) format('svg');
-    font-weight: 400;
-    font-style: normal;
-}
-@font-face {
-    font-family: WooCommerce;
-    src: url(../fonts/WooCommerce.eot);
-    src: url(../fonts/WooCommerce.eot?#iefix) format('embedded-opentype'), url(../fonts/WooCommerce.woff) format('woff'), url(../fonts/WooCommerce.ttf) format('truetype'), url(../fonts/WooCommerce.svg#WooCommerce) format('svg');
-    font-weight: 400;
-    font-style: normal;
-}
 p.demo_store {
     position: fixed;
     top: 0;
@@ -43,7 +29,7 @@ p.demo_store {
     top: 28px;
 }
 .wc-forward a:after, .wc-forward:after {
-    font-family: WooCommerce;
+    font-family: 'Open Sans', sans-serif;
     speak: none;
     font-weight: 400;
     font-variant: normal;
@@ -51,11 +37,11 @@ p.demo_store {
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     margin-left: 7px;
-    content: "\e029";
+    content: "\2192";
     font-size: .75em;
 }
 .wc-backward a:before, .wc-backward:before {
-    font-family: WooCommerce;
+    font-family: 'Open Sans', sans-serif;
     speak: none;
     font-weight: 400;
     font-variant: normal;
@@ -446,6 +432,9 @@ p.demo_store {
     font-size: 1em;
     text-align: center;
 }
+.woocommerce-page ul.products li.product h3:hover {
+    color: #009DEF;
+}
 .woocommerce ul.products li.product a, .woocommerce-page ul.products li.product a {
     text-decoration: none;
 }
@@ -464,6 +453,7 @@ p.demo_store {
 .woocommerce ul.products li.product a:hover img, .woocommerce-page ul.products li.product a:hover img {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .4);
     -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .4);
+
 }
 .woocommerce ul.products li.product strong, .woocommerce-page ul.products li.product strong {
     display: block;
@@ -533,11 +523,6 @@ p.demo_store {
 
 }
 
-.woocommerce a.added_to_cart, .woocommerce-page a.added_to_cart {
-    padding-top: .5em;
-    white-space: nowrap;
-    display: inline-block;
-}
 .woocommerce #content .quantity, .woocommerce .quantity, .woocommerce-page #content .quantity, .woocommerce-page .quantity {
     width: 60px;
     position: relative;
@@ -824,7 +809,7 @@ p.demo_store {
     border-right: 1px solid #ccc;
 }
 .woocommerce p.stars a.star-1:after, .woocommerce p.stars a.star-2:after, .woocommerce p.stars a.star-3:after, .woocommerce p.stars a.star-4:after, .woocommerce p.stars a.star-5:after, .woocommerce-page p.stars a.star-1:after, .woocommerce-page p.stars a.star-2:after, .woocommerce-page p.stars a.star-3:after, .woocommerce-page p.stars a.star-4:after, .woocommerce-page p.stars a.star-5:after {
-    font-family: WooCommerce;
+    font-family: 'Open Sans', sans-serif;
     text-indent: 0;
     position: absolute;
     top: 0;
@@ -1101,7 +1086,7 @@ p.demo_store {
     display: block;
 }
 .woocommerce .cart-collaterals .shipping_calculator .shipping-calculator-button:after, .woocommerce-page .cart-collaterals .shipping_calculator .shipping-calculator-button:after {
-    font-family: WooCommerce;
+    font-family: 'Open Sans', sans-serif;
     speak: none;
     font-weight: 400;
     font-variant: normal;
@@ -1450,7 +1435,7 @@ p.demo_store {
     padding-left: 0;
 }
 .woocommerce ul.digital-downloads li:before, .woocommerce-page ul.digital-downloads li:before {
-    font-family: WooCommerce;
+    font-family: 'Open Sans', sans-serif;
     speak: none;
     font-weight: 400;
     font-variant: normal;
@@ -1496,7 +1481,7 @@ p.demo_store {
     border-radius: 3px;
 }
 .woocommerce .widget_layered_nav ul li.chosen a:before, .woocommerce-page .widget_layered_nav ul li.chosen a:before {
-    font-family: WooCommerce;
+    font-family: 'Open Sans', sans-serif;
     speak: none;
     font-weight: 400;
     font-variant: normal;
@@ -1538,7 +1523,7 @@ p.demo_store {
     float: left;
 }
 .woocommerce .widget_layered_nav_filters ul li a:before, .woocommerce-page .widget_layered_nav_filters ul li a:before {
-    font-family: WooCommerce;
+    font-family: 'Open Sans', sans-serif;
     speak: none;
     font-weight: 400;
     font-variant: normal;
