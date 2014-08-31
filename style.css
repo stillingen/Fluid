@@ -1086,14 +1086,6 @@ Site Navigation
 .nav-secondary .sticky-right {
 	float: right;
 }
-
-@media only screen and (max-width: 767px) {
-
-	.nav-secondary .sticky-right {
-		float: none;
-	}
-
-}
 /*
 Content Area
 ---------------------------------------------------------------------------------------------------- */
@@ -1618,7 +1610,9 @@ Media Queries
 		margin: 0;
 		width: 100%;
 	}
-
+	.nav-secondary .sticky-right {
+		float: none;
+	}
 }
 
 /*
