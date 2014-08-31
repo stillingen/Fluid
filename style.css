@@ -1706,7 +1706,9 @@ h4.slide-content {
 	letter-spacing: 0.03em;
 	font-weight: normal;
 }
-
+h3.slide-content {
+	color: #fff;
+}
 .soliloquy-container a.button {
 	border-radius: 3px;
 	background: #009DEF;
