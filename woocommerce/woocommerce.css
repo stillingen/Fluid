@@ -123,10 +123,10 @@ p.demo_store {
     margin-left: 0!important;
 }
 .woocommerce .woocommerce-message, .woocommerce-page .woocommerce-message {
-    border-top: 3px solid #8fae1b;
+    border-top: 3px solid #009def;
 }
 .woocommerce .woocommerce-message:before, .woocommerce-page .woocommerce-message:before {
-    background-color: #8fae1b;
+    background-color: #009def;
     content: "\2713"}
 .woocommerce .woocommerce-info, .woocommerce-page .woocommerce-info {
     border-top: 3px solid #1e85be;
