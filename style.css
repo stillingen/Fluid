@@ -1544,6 +1544,12 @@ Media Queries
 		width: 100%;
 }
 @media (max-width: 479px) {
+  
+  .site-inner {
+    width: auto;
+	padding: 5px 5px;
+	padding: 0.5rem 0.5rem;
+  }
   .content-sidebar-wrap.content {
     padding-right: 0px;
   }
