@@ -334,7 +334,7 @@ p.demo_store {
 }
 .woocommerce #content div.product form.cart div.quantity, .woocommerce div.product form.cart div.quantity, .woocommerce-page #content div.product form.cart div.quantity, .woocommerce-page div.product form.cart div.quantity {
     float: left;
-    margin: 0 4px 0 0;
+    margin: 0 10px 0 0;
 }
 .woocommerce #content div.product form.cart table, .woocommerce div.product form.cart table, .woocommerce-page #content div.product form.cart table, .woocommerce-page div.product form.cart table {
     border-width: 0 0 1px;
@@ -535,6 +535,7 @@ p.demo_store {
     margin: 0 auto;
     overflow: hidden;
     zoom: 1;
+    color: black;
 }
 .woocommerce #content .quantity input.qty, .woocommerce .quantity input.qty, .woocommerce-page #content .quantity input.qty, .woocommerce-page .quantity input.qty {
     width: 40px;
@@ -542,7 +543,7 @@ p.demo_store {
     float: left;
     padding: 0;
     text-align: center;
-    border: 1px solid #c8bfc6;
+    border: 1px solid #009DEF;
     border-right: 0;
     -webkit-border-top-right-radius: 0;
     -webkit-border-bottom-right-radius: 0;
@@ -556,6 +557,7 @@ p.demo_store {
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
     -moz-appearance: textfield;
+    color: black;
 }
 .woocommerce #content .quantity input[type=number], .woocommerce #content .quantity noindex:-o-prefocus, .woocommerce .quantity input[type=number], .woocommerce .quantity noindex:-o-prefocus, .woocommerce-page #content .quantity input[type=number], .woocommerce-page #content .quantity noindex:-o-prefocus, .woocommerce-page .quantity input[type=number], .woocommerce-page .quantity noindex:-o-prefocus {
     padding-right: 1.2em;
@@ -579,7 +581,7 @@ p.demo_store {
     border-radius: 2px;
     color: #5e5e5e;
     text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
-    border: 1px solid #c8bfc6;
+    border: 1px solid #009DEF;
     background: #f7f6f7;
     background: -webkit-gradient(linear, left top, left bottom, from(#f7f6f7), to(#e0dadf));
     background: -webkit-linear-gradient(#f7f6f7, #e0dadf);
@@ -1070,6 +1072,7 @@ p.demo_store {
 .woocommerce .widget_shopping_cart .total, .woocommerce-page .widget_shopping_cart .total, .woocommerce-page.widget_shopping_cart .total, .woocommerce.widget_shopping_cart .total {
     border-top: 3px double #f7f6f7;
     padding: 4px 0 0;
+    color: black;
 }
 .woocommerce .widget_shopping_cart .total strong, .woocommerce-page .widget_shopping_cart .total strong, .woocommerce-page.widget_shopping_cart .total strong, .woocommerce.widget_shopping_cart .total strong {
     min-width: 40px;
@@ -1227,6 +1230,7 @@ p.demo_store {
 }
 .woocommerce ul#shipping_method .amount, .woocommerce-page ul#shipping_method .amount {
     font-weight: 700;
+    color: black;
 }
 .woocommerce p.woocommerce-shipping-contents, .woocommerce-page p.woocommerce-shipping-contents {
     margin: 0;
@@ -1691,7 +1695,7 @@ div.woocommerce-nested-category-layout-see-more-container {
 }
 }
 div.quantity.buttons_added {
-	padding-top: 15px;
+	padding-top: 8px;
 }
 
 /*Woocommerce Cart page styling - overriding default styling*/
