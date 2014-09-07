@@ -413,8 +413,8 @@ Structure and Layout
 
 .site-inner {
 	clear: both;
-	padding-top: 40px;
-	padding-top: 4rem;
+	padding-top: 20px;
+	padding-top: 2rem;
 }
 
 /* Column Widths and Positions
@@ -1097,8 +1097,6 @@ Content Area
 	border-radius: 3px;
 	margin-bottom: 40px;
 	margin-bottom: 4rem;
-	padding: 40px 40px 24px;
-	padding: 4rem 4rem 2.4rem;
 }
 
 .entry-content a {
@@ -1453,6 +1451,8 @@ Media Queries
 @media (max-width: 991px) {
   .site-inner {
     width: auto;
+    padding-left: 5px;
+    padding-right: 5px;
   }
   .entry {
 	margin-bottom: 20px;
@@ -1461,31 +1461,37 @@ Media Queries
 	padding: 1rem 1rem 0.6rem;
 }
 
-  .content{
-  	width: auto !important;
-  }
-  .content-sidebar-wrap.content {
-    width: 100%;
-    padding-right: 0px;
-  }
+	.content,
+	.content-sidebar-sidebar .content,
+	.content-sidebar-sidebar .content-sidebar-wrap,
+	.footer-widgets-1,
+	.footer-widgets-2,
+	.footer-widgets-3,
+	.sidebar-content-sidebar .content,
+	.sidebar-content-sidebar .content-sidebar-wrap,
+	.sidebar-primary,
+	.sidebar-secondary,
+	.sidebar-sidebar-content .content,
+	.sidebar-sidebar-content .content-sidebar-wrap,
+	.site-header .widget-area,
+	.site-inner,
+	.title-area,
+	.content-sidebar {
+		width: 100% !important;
+	}
+
   .sidebar .widget {
 	margin-bottom: 20px;
 	margin-bottom: 2rem;
 	padding: 10px;
 	padding: 1rem;
 }
-  .images {
-    margin-left: 10px;
-  }
   .sidebar-primary {
     width: 100%;
     margin-top: 0px;
     margin-left: 10px;
     float: right;
     padding-left: 0px;
-  }
-  .entry-content {
-    margin-left: 10px;
   }
   .product-list-widget {
     position: static;
@@ -1501,13 +1507,10 @@ Media Queries
   }
 }
 @media (max-width: 767px) {
-  .front-page-featured-product-item {
-    width: 100%;
-    float: none;
-  }
-  .front-page-latest-blog-post-item {
+  .site-inner {
     width: auto;
-    padding: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
   .content-sidebar-wrap.content {
     width: 100%;
