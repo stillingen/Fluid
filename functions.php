@@ -182,17 +182,6 @@ function sk_home_featured() {
 	}
 }
 
-//* Enqueue sticky menu script
-add_action( 'wp_enqueue_scripts', 'sp_enqueue_script' );
-function sp_enqueue_script() {
-	wp_enqueue_script( 'sample-sticky-menu', get_bloginfo( 'stylesheet_directory' ) . '/lib/js/sticky.js', array( 'jquery' ), '1.0.0' );
-}
-
-//* Reposition the secondary navigation menu
-remove_action( 'genesis_after_header', 'genesis_do_subnav' );
-add_action( 'genesis_before', 'genesis_do_subnav' );
-
-
 add_filter( 'wp_nav_menu_items', 'custom_nav_item', 10, 2 );
 /**
  * Callback for Genesis 'wp_nav_menu_items' filter.
