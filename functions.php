@@ -81,7 +81,7 @@ if( !is_singular('post') )
 
 if( $prev_post = get_previous_post() ): 
 echo'<div class="single-post-nav previous-post-link">';
-echo'<h2>Forrige blogginnlegg</h2>';
+echo'<h2>Forrige innlegg</h2>';
 $prevpost = get_the_post_thumbnail( $prev_post->ID, 'medium', array('class' => 'pagination-previous')); 
 previous_post_link( '%link',"$prevpost", TRUE ); 
 previous_post_link( '<div class="prev-link">%link</div>', '%title' );
@@ -90,7 +90,7 @@ endif;
 
 if( $next_post = get_next_post() ): 
 echo'<div class="single-post-nav next-post-link">';
-echo'<h2>Neste blogginnlegg</h2>';
+echo'<h2>Neste innlegg</h2>';
 $nextpost = get_the_post_thumbnail( $next_post->ID, 'medium', array('class' => 'pagination-next')); 
 next_post_link( '%link',"$nextpost", TRUE );
 next_post_link( '<div class="next-link">%link</div>', '%title' );
@@ -242,4 +242,18 @@ global $post;
     }
  
 }
+/**
+ * Register and Enqueue Primary Navigation Menu Script
+ * 
+ * @author Brad Potter
+ * 
+ * @link http://www.bradpotter.com
+ */
+function gst_primarymenu_script() {
+  	
+	wp_register_script( 'primary-menu', get_stylesheet_directory_uri() . '/lib/js/primarymenu.js', array('jquery'), '1.0.0', false );
+	wp_enqueue_script( 'primary-menu' );
+
+ }
+add_action('wp_enqueue_scripts', 'gst_primarymenu_script');
 ?>
