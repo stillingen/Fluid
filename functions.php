@@ -155,9 +155,6 @@ wp_enqueue_style( 'woocommerce' );
 }
 add_action('wp_enqueue_scripts', 'woocommerce_style_sheet');
 
-//* Removing woocommerce breadcrums
-remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0);
-
 //* Register Home Slider widget area
 genesis_register_sidebar( array(
 	'id'			=> 'home-slider',
