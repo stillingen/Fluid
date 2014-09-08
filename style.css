@@ -1542,8 +1542,133 @@ Media Queries
 		margin: 0;
 		width: 100%;
 	}
-}
+  /* Primary Navigation Menu Icon properties */
+	
+	#primary-menu-icon {
+		cursor: pointer;
+		display: block;
+		padding: 12px 18px;
+		padding: 1.2rem 1.8rem;
+	}
 
+	#primary-menu-icon::before {
+		color: #eee;
+		content: 'MENY \2630';
+		font-weight: bold;
+		letter-spacing: 1px;
+	}
+	
+	#primary-menu-icon:hover::before {
+		color: #eee;
+		content: 'MENY \2637';
+	}
+	
+	#primary-menu-icon:active::before {
+		color: #fff;
+		content: 'MENY \2637';
+	}
+	
+	/* Hide Primary Navigation Menu until it's toggled via script */
+	
+	.menu-primary {
+		display: none;
+	}
+	
+	/* Primary Navigation Menu misc properties */
+	
+	.nav-primary {
+		clear: both;
+		color: #999;
+		font-family: Lato, sans-serif;
+		line-height: 1.5;
+		width: 100%;
+		z-index: 9999;
+	}
+
+	.nav-primary .menu-item {
+		display: block;
+		text-align: left;
+	}
+
+	.nav-primary a {
+		background-color: #f0f0f0;
+		border-bottom: 1px solid #ccc;
+		color: #222;
+		display: block;
+		padding: 20px 24px;
+		padding: 2rem 2.4rem;
+		position: relative;
+	}
+
+	.nav-primary a:hover,
+	.nav-primary .current-menu-item > a,
+	.nav-primary .sub-menu .current-menu-item > a:hover {
+		background-color: #ddd;
+		color: #222;
+	}
+
+	.nav-primary .sub-menu .current-menu-item > a {
+		color: #999;
+	}
+
+	.nav-primary > .menu-item > a {
+		text-transform: uppercase;
+	}
+
+	.nav-primary .sub-menu {
+		left: 0px;
+		opacity: 1;
+		position: relative;
+		-webkit-transition: opacity .4s ease-in-out;
+		-moz-transition:    opacity .4s ease-in-out;
+		-ms-transition:     opacity .4s ease-in-out;
+		-o-transition:      opacity .4s ease-in-out;
+		transition:         opacity .4s ease-in-out;
+		width: 100%;
+		z-index: 99;
+	}
+
+	.nav-primary .sub-menu a {
+		background-color: #fff;
+		border-bottom: 1px solid #ccc;
+		font-size: 14px;
+		font-size: 1.4rem;
+		padding: 18px 30px;
+		padding: 1.8rem 3rem;
+		position: relative;
+		width: 100%;
+	}
+
+	.nav-primary .sub-menu a::before {
+		content: "- ";
+		font-size: 14px;
+		font-size: 1.4rem;
+	}
+	
+	.nav-primary .sub-menu a:hover {
+		background-color: #f7f7f7;
+	}
+	
+	.nav-primary .sub-menu li li a {
+		padding: 18px 40px;
+		padding: 1.8rem 4rem;
+	}
+	
+	.nav-primary .sub-menu .sub-menu {
+		margin: 0;
+	}
+
+	.nav-primary .menu-item:hover {
+		position: static;
+	}
+
+	.nav-primary .menu-item:hover > .sub-menu {
+		left: auto;
+		opacity: 1;
+	}
+	.genesis-nav-menu {
+		padding-right: 0px !important;
+}
 @media (max-width: 479px) {
   
   .site-inner {
