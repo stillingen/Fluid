@@ -1554,7 +1554,6 @@ Media Queries
 	#primary-menu-icon::before {
 		color: #eee;
 		content: 'MENY \2630';
-		font-weight: bold;
 		letter-spacing: 1px;
 	}
 	
@@ -1667,7 +1666,8 @@ Media Queries
 		opacity: 1;
 	}
 	.genesis-nav-menu {
-		padding-right: 0px !important;
+	padding-right: 0px !important;
+	}
 }
 @media (max-width: 479px) {
   
