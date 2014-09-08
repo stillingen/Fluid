@@ -1528,7 +1528,6 @@ Media Queries
     margin-left: -5px;
     padding-right: 0px;
   }
-}
 	.five-sixths,
 	.four-sixths,
 	.one-fourth,
@@ -1542,7 +1541,9 @@ Media Queries
 	.two-thirds {
 		margin: 0;
 		width: 100%;
+	}
 }
+
 @media (max-width: 479px) {
   
   .site-inner {
