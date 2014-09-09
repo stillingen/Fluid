@@ -1354,6 +1354,10 @@ Footer Widgets
 	clear: both;
 	padding: 20px 0 16px;
 	padding: 2rem 0 1.6rem;
+	padding-left: 10px;
+	padding-left: 1rem;
+	padding-right: 10px;
+	padding-right: 1rem;
 }
 
 .footer-widgets-1,
