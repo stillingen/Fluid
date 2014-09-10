@@ -1188,7 +1188,7 @@ p.demo_store {
     margin: 0;
     outline: 0;
     line-height: 1em;
-}
+}checkout-button
 .woocommerce form .form-row textarea, .woocommerce-page form .form-row textarea {
     height: 4em;
     line-height: 1.5em;
@@ -1196,6 +1196,7 @@ p.demo_store {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
+    width: 100%;
 }
 .woocommerce form .form-row.validate-required.woocommerce-invalid .chosen-drop, .woocommerce form .form-row.validate-required.woocommerce-invalid .chosen-single, .woocommerce form .form-row.validate-required.woocommerce-invalid input.input-text, .woocommerce form .form-row.validate-required.woocommerce-invalid select, .woocommerce-page form .form-row.validate-required.woocommerce-invalid .chosen-drop, .woocommerce-page form .form-row.validate-required.woocommerce-invalid .chosen-single, .woocommerce-page form .form-row.validate-required.woocommerce-invalid input.input-text, .woocommerce-page form .form-row.validate-required.woocommerce-invalid select {
     border-color: #fb7f88;
