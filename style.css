@@ -1711,11 +1711,27 @@ Media Queries
 		opacity: 1;
 	}
 	.genesis-nav-menu {
-	padding-right: 0px !important;
+		padding-right: 0px !important;
 	}
 	.woocommerce table.shop_table td, .woocommerce-page table.shop_table td {
-    padding: 2px 6px !important;
+    	padding: 2px 6px !important;
 	}
+	.home-slider .soliloquy-container .soliloquy-caption {
+		display: block;
+		position: static;
+		}
+	.soliloquy-caption-inside {
+    	background: #fff !important;
+		}
+	h2.slide-title {
+		color: #000 !important;
+		}
+	h3.slide-content{
+		color: #000 !important
+	}	
+	.soliloquy-caption {
+    	border: 1px solid #e0dadf !important;
+		}
 }
 @media (max-width: 479px) {
   
@@ -1866,21 +1882,21 @@ a img {
 }
 
 h2.slide-title {
-	font-size: 25px;
+	font-size: 30px;
+	font-size: 3rem;
 	color: #fff;
 	margin-bottom: 30px;
 	text-transform: uppercase;
 	font-family: 'Open Sans', sans-serif;
-	font-weight: normal;
-	letter-spacing: 2px;
+	font-weight: 700;
 }
 
 h4.slide-content {
-	font-size: 21px;
+	font-size: 24px;
 	color: #fff;
-	line-height: 1.5;
+	line-height: 1.2;
 	letter-spacing: 0.03em;
-	font-weight: normal;
+	font-weight: 700;
 }
 h3.slide-content {
 	color: #fff;
@@ -1907,17 +1923,6 @@ h3.slide-content {
 	float: right;
 	width: auto;
 }
-
-@media only screen and (max-width: 600px) {
-
-	.home-slider .soliloquy-container .soliloquy-caption {
-		display: block;
-		position: static;
-		background: #999;
-	}
-
-}
-
 /* Styling for primary menu
 --------------------------------------------- */
 nav.nav-primary {
