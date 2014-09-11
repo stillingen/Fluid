@@ -1511,6 +1511,10 @@ Media Queries
   }
 }
 @media (max-width: 767px) {
+  
+  header.site-header {
+    display: none;
+}
   .site-inner {
     width: auto;
     padding-left: 0px;
@@ -1723,8 +1727,14 @@ Media Queries
 	td.product-price {
     display: none;
 	}
+	input.button.wc_update_cart_button {
+    width: 100% !important;
+    margin-bottom: 5px !important;
+	}
+	input.checkout-button.button.alt.wc-forward {
+    width: 100% !important;
+	}
 }
-
 /*
 Custom Styling goes bellow this line
 ---------------------------------------------------------------------------------------------------- */
