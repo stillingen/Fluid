@@ -155,6 +155,16 @@ wp_enqueue_style( 'woocommerce' );
 }
 add_action('wp_enqueue_scripts', 'woocommerce_style_sheet');
 
+add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
+
+function woo_remove_product_tabs( $tabs ) {
+	
+    unset( $tabs['reviews'] ); 			// Remove the reviews tab
+    unset( $tabs['additional_information'] );  	// Remove the additional information tab
+
+    return $tabs;
+
+}
 //* Register Home Slider widget area
 genesis_register_sidebar( array(
 	'id'			=> 'home-slider',
