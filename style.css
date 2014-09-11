@@ -1435,6 +1435,41 @@ Site Footer
 	margin-bottom: 0;
 }
 
+/*Woocommerce styling goes in this section*/
+
+/*Woocommerce nested category se more button styling*/
+
+.woocommerce-nested-category-layout-see-more.button.cta {
+    border-radius: 3px;
+    background: #009DEF;
+    padding: 16px 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+
+.woocommerce-nested-category-layout-see-more.button.cta:hover {
+    background: #333;
+    color: #fff;
+}
+
+div.woocommerce-nested-category-layout-see-more-container {
+    text-align: center !important;
+    margin-top: -50px;
+    color: #fff;
+    /* margin-right: auto; */
+}
+div.quantity.buttons_added {
+	padding-top: 15px;
+}
+
+a.button.wc-forward {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+}
 
 /*
 Media Queries
@@ -1509,6 +1544,11 @@ Media Queries
     padding-bottom: 0px;
     float: left;
   }
+a.button.wc-forward {
+    width: 48% !important;
+    float: left;
+    margin-right: 5px;
+   } 
 }
 @media (max-width: 767px) {
   
@@ -1734,6 +1774,12 @@ Media Queries
 	input.checkout-button.button.alt.wc-forward {
     width: 100% !important;
 	}
+	a.button.wc-forward {
+    width: 100% !important;
+    float: center;
+    margin-right: 0px !important;
+   } 
+}
 }
 /*
 Custom Styling goes bellow this line
@@ -1907,36 +1953,6 @@ Left Aligned Primary Nav Extra
 	display: block;
 	position: relative;
 }
-
-/*Woocommerce nested category se more button styling*/
-
-.woocommerce-nested-category-layout-see-more.button.cta {
-    border-radius: 3px;
-    background: #009DEF;
-    padding: 16px 24px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 30px;
-    font-family: 'Open Sans', sans-serif;
-    
-}
-
-.woocommerce-nested-category-layout-see-more.button.cta:hover {
-    background: #333;
-    color: #fff;
-}
-
-div.woocommerce-nested-category-layout-see-more-container {
-    text-align: center !important;
-    margin-top: -50px;
-    color: #fff;
-    /* margin-right: auto; */
-}
-}
-div.quantity.buttons_added {
-	padding-top: 15px;
-}
-
 /* Global elements custom styling
 --------------------------------------------- */
 .genesis-nav-menu {
