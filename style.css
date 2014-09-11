@@ -1490,16 +1490,9 @@ Media Queries
 @media (max-width: 991px) {
   .site-inner {
     width: auto;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
-  .entry {
-	margin-bottom: 20px;
-	margin-bottom: 2rem;
-	padding: 10px 10px 6px;
-	padding: 1rem 1rem 0.6rem;
-}
-
 	.content,
 	.content-sidebar-sidebar .content,
 	.content-sidebar-sidebar .content-sidebar-wrap,
@@ -1517,21 +1510,15 @@ Media Queries
 	.title-area,
 	.content-sidebar {
 		width: 100% !important;
+		float: center !important;
 	}
 
   .sidebar .widget {
 	margin-bottom: 20px;
 	margin-bottom: 2rem;
-	padding: 10px;
-	padding: 1rem;
+	padding: 0px;
+	padding: 0rem;
 }
-  .sidebar-primary {
-    width: 100%;
-    margin-top: 0px;
-    margin-left: 10px;
-    float: right;
-    padding-left: 0px;
-  }
   .product-list-widget {
     position: static;
     padding-right: 0px;
@@ -1544,22 +1531,21 @@ Media Queries
     padding-bottom: 0px;
     float: left;
   }
-a.button.wc-forward {
+	a.button.wc-forward {
     width: 48% !important;
-    float: left;
+    float: center;
     margin-right: 5px;
    } 
+	.footerwidgetheader-container {
+    padding-left: 10px;
+    padding-right: 10px;
+	}
 }
 @media (max-width: 767px) {
   
   header.site-header {
     display: none;
 }
-  .site-inner {
-    width: auto;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
   .content-sidebar-wrap.content {
     width: 100%;
     padding-right: 0px;
