@@ -415,6 +415,10 @@ Structure and Layout
 	clear: both;
 	padding-top: 20px;
 	padding-top: 2rem;
+	padding-left: 5px;
+	padding-left: 0.5rem;
+	padding-right: 5px;
+	padding-right: 0.5rem;
 }
 
 /* Column Widths and Positions
@@ -1362,16 +1366,11 @@ Footer Widgets
 
 .footer-widgets-1,
 .footer-widgets-3 {
-	width: 350px;
+	width: 33%;
 }
 
 .footer-widgets-2 {
-	width: 360px;
-}
-
-.footer-widgets-1 {
-	margin-right: 40px;
-	margin-right: 4rem;
+	width: 33%;
 }
 
 .footer-widgets-1,
@@ -1411,7 +1410,9 @@ Footer Widgets
 .footer-widgets .search-form input:focus {
 	border: 1px solid #ddd;
 }
-
+.footerwidgetheader-container {
+padding-top: 20px;
+}
 
 /*
 Site Footer
@@ -1729,22 +1730,19 @@ Media Queries
 	h2.slide-content,
 	h3.slide-content,
 	h4.slide-content {
-	color: #000;
+	color: #000 !important;
 	}
 	.soliloquy-caption {
     	border: 1px solid #e0dadf !important;
 		}
 }
 @media (max-width: 479px) {
-  
-  .site-inner {
-    width: auto;
-	padding: 5px 5px;
-	padding: 0.5rem 0.5rem;
-  	}
-  .content-sidebar-wrap.content {
-    padding-right: 0px;
-  	}
+
+	.content-sidebar .content,
+	.content-sidebar-sidebar .content,
+	.sidebar-content-sidebar .content {
+	padding-right: 0px !important;
+}
   .product {
     width: auto;
   	}
@@ -1813,10 +1811,7 @@ Custom Styling goes bellow this line
 }
 .home-middle.widget-area.home-widget-area {
     padding-bottom: 20px;
-}
-.home-widget-area:last-child {
-	margin-bottom: 40px;
-	}	
+}	
 /* Padding footer widget
 --------------------------------------------- */
 div.footer-widgets {
@@ -1900,13 +1895,15 @@ h2.slide-title {
 	text-transform: uppercase;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
+	color: #fff;
 }
 
-h4.slide-content {
+h3.slide-content {
 	font-size: 24px;
 	line-height: 1.2;
 	letter-spacing: 0.03em;
 	font-weight: 700;
+	color: #fff;
 }
 .soliloquy-container a.button {
 	border-radius: 3px;
