@@ -158,7 +158,7 @@ add_action('wp_enqueue_scripts', 'woocommerce_style_sheet');
 add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
 
 function woo_remove_product_tabs( $tabs ) {
-	
+
     unset( $tabs['reviews'] ); 			// Remove the reviews tab
     unset( $tabs['additional_information'] );  	// Remove the additional information tab
 
@@ -188,35 +188,6 @@ function sk_home_featured() {
 		) );
 	}
 }
-
-add_filter( 'wp_nav_menu_items', 'custom_nav_item', 10, 2 );
-/**
- * Callback for Genesis 'wp_nav_menu_items' filter.
- * 
- * Add custom left nav item to Genesis primary menu.
- * 
- * @package Genesis
- * @category Nav Menu
- * @author Ryan Meier http://www.rfmeier.net
- * 
- * @param string $menu The menu html
- * @param stdClass $args the current menu args
- * @return string $menu The menu html
- */
-function custom_nav_item( $menu, $args ){
-        
-    // make sure we are in the primary menu
-    if ( 'primary' != $args->theme_location )
-    	return $menu;
-    
-    // see if a nav extra was already specified with Theme options
-    if( genesis_get_option( 'nav_extras' ) )
-            return $menu;
-    // return the menu
-    return $menu;
-        
-}
-
 // Force Excerpts length to 30 caracters
 add_filter( 'excerpt_length', 'change_excerpt_length' );
 function change_excerpt_length($length) {
