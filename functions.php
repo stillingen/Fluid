@@ -106,7 +106,6 @@ add_action ('genesis_before_footer','genesis_footer_widget_areas', 10 );
 
 /* Woocommerce customization
 --------------------------------------------- */
-
 //* Removing woocommerce sub category thumbnails
 	function woocommerce_nested_category_products_content_section( $categories, $product_category_ids ) {
 		global $woocommerce, $wp_query, $wc_nested_category_layout;
@@ -138,7 +137,7 @@ add_action ('genesis_before_footer','genesis_footer_widget_areas', 10 );
 			echo '<div class="subcategory-term_description term_description">' . wpautop( wptexturize( $category->description ) ) . '</div>';
 		}
 
-		woocommerce_get_template( 'loop/nested-category.php', array( 'woocommerce_product_category_ids' => $product_category_ids, 'category' => $title_cat ), '', $wc_nested_category_layout->plugin_path() . '/templates/' );
+		woocommerce_get_template( 'loop/nested-category.php', array( 'woocommerce_product_category_ids' => $product_category_ids, 'category' => $title_cat ), '', $wc_nested_category_layout->get_plugin_path() . '/templates/' );
 	}
 
 //* Enqueing and queing Woocommerce default style, to be able to load custom version from template direcotry
@@ -256,4 +255,14 @@ function gst_primarymenu_script() {
 
  }
 add_action('wp_enqueue_scripts', 'gst_primarymenu_script');
+
+//Displaying Category Headings on all Category Archive Pages in Genesis
+function themeprefix_category_header() {
+if ( is_category() )  {
+        echo '<h1 class="archive-title">';
+        echo single_cat_title();  
+        echo '</h1>';
+    }
+}
+add_action( 'genesis_before_loop' , 'themeprefix_category_header' );
 ?>
