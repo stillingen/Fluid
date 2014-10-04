@@ -51,7 +51,7 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 			do_action( 'woocommerce_before_shop_loop_item_title' );
 		?>
 
-		<span itemprop="itemListElement"><h3><?php the_title(); ?></h3></span>
+		<h3 itemprop="itemListElement"><?php the_title(); ?></h3>
 
 		<?php
 			/**

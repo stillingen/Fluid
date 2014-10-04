@@ -44,14 +44,14 @@ $woocommerce_loop['loop']++;
 			do_action( 'woocommerce_before_subcategory_title', $category );
 		?>
 
-		<span itemprop="itemListElement"><h3>
+		<h3 itemprop="itemListElement">
 			<?php
 				echo $category->name;
 
 				if ( $category->count > 0 )
 					echo apply_filters( 'woocommerce_subcategory_count_html', ' <mark class="count">(' . $category->count . ')</mark>', $category );
 			?>
-		</h3></span>
+		</h3>
 
 		<?php
 			/**
