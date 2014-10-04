@@ -1472,6 +1472,17 @@ a.button.wc-forward {
     margin-bottom: 5px;
 }
 
+ul.products li.product a h3{
+    color: #009DEF;
+}
+
+ul.products li.product a h3:hover{
+    color: #000 !important
+    ;
+}
+h3 mark.count { 
+	background-color:transparent;
+	}
 /*
 Media Queries
 ---------------------------------------------------------------------------------------------------- */
