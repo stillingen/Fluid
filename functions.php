@@ -265,4 +265,15 @@ if ( is_category() )  {
     }
 }
 add_action( 'genesis_before_loop' , 'themeprefix_category_header' );
+
+// Both woo_breadcrumbs() and Yoast breadcrumbs need to be enabled in the WordPress admin for this to function.
+add_filter( 'woo_breadcrumbs', 'woo_custom_use_yoast_breadcrumbs' );
+function woo_custom_use_yoast_breadcrumbs ( $breadcrumbs ) {
+if ( function_exists( 'yoast_breadcrumb' ) ) {
+$before = '<div class="breadcrumb breadcrumbs woo-breadcrumbs"><div class="breadcrumb-trail">';
+$after = '</div></div>';
+$breadcrumbs = yoast_breadcrumb( $before, $after, false ); 
+}
+return $breadcrumbs;
+} // End woo_custom_use_yoast_breadcrumbs()
 ?>
