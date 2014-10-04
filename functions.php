@@ -164,6 +164,7 @@ function woo_remove_product_tabs( $tabs ) {
     return $tabs;
 
 }
+add_filter( 'wc_product_sku_enabled', '__return_false' );
 //* Register Home Slider widget area
 genesis_register_sidebar( array(
 	'id'			=> 'home-slider',
