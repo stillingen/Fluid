@@ -1753,10 +1753,6 @@ Media Queries
 }
 @media (max-width: 479px) {
 
-	.site-inner {
-    padding-left: 0px;
-    padding-right: 0px;
-}
 	.content-sidebar .content,
 	.content-sidebar-sidebar .content,
 	.sidebar-content-sidebar .content {
