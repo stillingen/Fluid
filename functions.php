@@ -166,6 +166,26 @@ function woo_remove_product_tabs( $tabs ) {
 
 }
 add_filter( 'wc_product_sku_enabled', '__return_false' );
+
+// Moving composite products before Woocommerce product summary 
+remove_all_actions( 'woocommerce_composite_add_to_cart' );
+add_action( 'woocommerce_after_single_product_summary', 'rehook_composite_add_to_cart', 5 );
+
+function rehook_composite_add_to_cart() {
+    global $woocommerce_composite_products, $product;
+
+    if ( $product->is_type( 'composite' ) )
+        $woocommerce_composite_products->display->wc_cp_add_to_cart();
+}
+
+// Removing wc_remove_related_products
+function wc_remove_related_products( $args ) {
+	return array();
+}
+add_filter('woocommerce_related_products_args','wc_remove_related_products', 10); 
+
+/******* End Woocommerce customization************/
+
 //* Register Home Slider widget area
 genesis_register_sidebar( array(
 	'id'			=> 'home-slider',
@@ -278,16 +298,5 @@ $breadcrumbs = yoast_breadcrumb( $before, $after, false );
 }
 return $breadcrumbs;
 } // End woo_custom_use_yoast_breadcrumbs()
-
-// Moving composite products before Woocommerce product summary 
-remove_all_actions( 'woocommerce_composite_add_to_cart' );
-add_action( 'woocommerce_after_single_product_summary', 'rehook_composite_add_to_cart', 5 );
-
-function rehook_composite_add_to_cart() {
-    global $woocommerce_composite_products, $product;
-
-    if ( $product->is_type( 'composite' ) )
-        $woocommerce_composite_products->display->wc_cp_add_to_cart();
-}
 
 ?>
