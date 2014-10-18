@@ -1357,10 +1357,10 @@ Footer Widgets
 	clear: both;
 	padding: 20px 0 16px;
 	padding: 2rem 0 1.6rem;
-	padding-left: 10px;
-	padding-left: 1rem;
-	padding-right: 10px;
-	padding-right: 1rem;
+	padding-left: 20px;
+	padding-left: 2rem;
+	padding-right: 20px;
+	padding-right: 2rem;
 }
 
 .footer-widgets-1,
@@ -1411,6 +1411,7 @@ Footer Widgets
 }
 .footerwidgetheader-container {
 padding-top: 20px;
+padding-left: 15px;
 }
 
 /*
@@ -1530,28 +1531,24 @@ Media Queries
 	margin-bottom: 2rem;
 	padding: 0px;
 	padding: 0rem;
-}
+	}
   .product-list-widget {
     position: static;
     padding-right: 0px;
     float: none;
-  }
+  	}
   .product-list-widget-item {
     width: 48%;
     margin-right: 15px;
     padding-right: 0px;
     padding-bottom: 0px;
     float: left;
-  }
+  	}
 	a.button.wc-forward {
     width: 48% !important;
     float: center;
     margin-right: 5px;
-   } 
-	.footerwidgetheader-container {
-    padding-left: 10px;
-    padding-right: 10px;
-	}
+   	} 
 	.home-top.widget-area.home-widget-area {
     padding-left: 10px;
     padding-right: 10px;
@@ -1563,6 +1560,12 @@ Media Queries
 	.home-bottom.widget-area.home-widget-area {
     padding-left: 10px;
     padding-right: 10px;
+	}
+	.footer-widgets {
+	padding-left: 10px !important;
+	padding-left: 1rem !important;
+	padding-right: 10px !important;
+	padding-right: 1rem !important;
 	}
 }
 @media (max-width: 767px) {
@@ -1813,6 +1816,9 @@ Media Queries
     padding-left: 5px;
     padding-right: 5px;
 	}
+	.footerwidgetheader-container {
+	padding-left: 0px !important;
+	}
 }
 /*
 Custom Styling goes bellow this line
@@ -1839,12 +1845,12 @@ div.footer-widgets {
 ------------------------------------------------------------ */
 
 .previous-post-link {
-width: 48%;
+width: 49%;
 float: left;
 }
 
 .next-post-link {
-width: 48%;
+width: 49%;
 float: right;
 text-align: right;
 }
