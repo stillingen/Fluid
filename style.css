@@ -452,7 +452,7 @@ Structure and Layout
 .content-sidebar-sidebar .content,
 .sidebar-content-sidebar .content {
   width: 67%;
-  padding-right: 5px;
+  padding-left: 5px;
   float: left;
 }
 
@@ -470,7 +470,6 @@ Structure and Layout
 
 .sidebar-primary {
   width: 33%;
-  padding-left: 5px;
   float: right;
 }
 
@@ -1756,7 +1755,7 @@ Media Queries
 	.content-sidebar .content,
 	.content-sidebar-sidebar .content,
 	.sidebar-content-sidebar .content {
-	padding-right: 0px !important;
+	padding-left: 0px !important;
 }
   .product {
     width: auto;
