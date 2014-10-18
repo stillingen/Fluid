@@ -279,6 +279,7 @@ $breadcrumbs = yoast_breadcrumb( $before, $after, false );
 return $breadcrumbs;
 } // End woo_custom_use_yoast_breadcrumbs()
 
+// Moving composite products before Woocommerce product summary 
 remove_all_actions( 'woocommerce_composite_add_to_cart' );
 add_action( 'woocommerce_after_single_product_summary', 'rehook_composite_add_to_cart', 5 );
 
