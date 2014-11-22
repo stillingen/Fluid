@@ -835,7 +835,6 @@ Site Header
 
 .site-header {
 	padding-left: 10px;
-	padding: 1rem;
 }
 
 /* Title Area
@@ -1501,9 +1500,8 @@ Media Queries
 	.sidebar-secondary,
 	.sidebar-sidebar-content .content,
 	.sidebar-sidebar-content .content-sidebar-wrap,
-	.site-header .widget-area,
+	.site-header,
 	.site-inner,
-	.title-area,
 	.content-sidebar {
 		width: 100% !important;
 		float: center !important;
@@ -1967,4 +1965,30 @@ Left Aligned Primary Nav Extra
 }
 aside.widget-area.header-widget-area {
     width: auto !important;
+}
+
+aside.widget-area.header-widget-area {
+  position: relative;
+  top: 50%;
+  transform: translateY(20%);
+}
+
+.logo-3rd-party {
+    width: 50%;
+    float: right;
+    padding-right: 20px;
+}
+
+.nets-logo {
+    width: 50%;
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.bring-logo {
+    width: 50%;
+    float: right;
+    padding-left: 5px;
+    padding-right: 5px;
 }
