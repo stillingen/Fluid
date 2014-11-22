@@ -7,6 +7,7 @@ define( 'CHILD_THEME_NAME', 'Fluid' );
 define( 'CHILD_THEME_URL', '<http://www.studiopress.com/' );
 define( 'CHILD_THEME_VERSION', '2.0.1' );
 
+/******-----------Template support----------------*****/
 //* Add HTML5 markup structure
 add_theme_support( 'html5' );
 
@@ -20,12 +21,17 @@ add_theme_support( 'custom-background' );
 add_theme_support( 'woocommerce' );
 add_theme_support( 'genesis-connect-woocommerce' );
 
+/******----------- End template support----------------*****/
+
+
+/******------Widget registration and config------------*****/
+
 //* Register footer header widget
 function genesischild_footerwidgetheader() {
 
     genesis_register_sidebar( array(
     'id' => 'footerwidgetheader',
-    'name' => __( 'Footer Widget Header', 'Fluid' ),
+    'name' => __( 'Footer Header Widget', 'Fluid' ),
     'description' => __( 'This is for the Footer Widget Headline', 'Fluid' ),
     ) );
 }
@@ -43,7 +49,23 @@ add_action ('genesis_before_footer','genesischild_footerwidgetheader_position', 
 //* Add support for 3-column footer widgets
 add_theme_support( 'genesis-footer-widgets', 3 );
 
+
 //* Register full width widget for front page
+add_action( 'genesis_after_header', 'sk_home_featured' );
+/**
+ * Display Home Slider widget area's contents below Navigation on homepage.
+ *
+ * @author Sridhar Katakam
+ * @link   http://sridharkatakam.com/full-width-soliloquy-slider-genesis/
+ */
+function sk_home_featured() {
+	if ( is_home() || is_front_page() ) {
+		genesis_widget_area( 'home-slider', array(
+			'before'	=> '<div class="home-slider widget-area">',
+			'after'		=> '</div>',
+		) );
+	}
+}
 genesis_register_sidebar( array(
 	'id'          => 'home-top',
 	'name'        => __( 'Home - Top', 'Fluid' ),
@@ -62,15 +84,20 @@ genesis_register_sidebar( array(
 	'description' => __( 'This is the bottom section of the Home page.', 'Fluid' ),
 ) );
 
-//* Customize the credits
-add_filter( 'genesis_footer_creds_text', 'sp_footer_creds_text' );
-function sp_footer_creds_text() {
-	echo '<div class="creds"><p>';
-	echo 'Copyright &copy; ';
-	echo date('Y');
-	echo ' &middot; <a href="http://www.fluid.no">fluid.no</a>';
-	echo '</p></div>';
-}
+//* Register Home Slider widget area
+genesis_register_sidebar( array(
+	'id'			=> 'home-slider',
+	'name'			=> 'Home Slider',
+	'description'	=> 'This is the home slider section'
+) );
+
+/******----End widget registration and config----------*****/
+
+
+/******------Navigation and Accessibility config------------*****/
+
+//* Remove the post meta function
+remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 
 //* Adding next and previous navigation previews on post
 add_action('genesis_entry_footer', 'wpsites_image_nav_links', 25 );
@@ -98,15 +125,114 @@ next_post_link( '<div class="next-link">%link</div>', '%title' );
 echo'</div>';
 endif; 
 } 
-//* Remove the post meta function
-remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 
-//* Reordering redering order for footer header wiget(1), and footer widgets(10)
-remove_action( 'genesis_before_footer', 'genesis_footer_widget_areas' );
-add_action ('genesis_before_footer','genesis_footer_widget_areas', 10 );
+//* Customize the credits
+add_filter( 'genesis_footer_creds_text', 'sp_footer_creds_text' );
+function sp_footer_creds_text() {
+	echo '<div class="creds"><p>';
+	echo 'Copyright &copy; ';
+	echo date('Y');
+	echo ' &middot; <a href="http://www.fluid.no">fluid.no</a>';
+	echo '</p></div>';
+}
+// Filter the title with a custom function
+add_filter('genesis_seo_title', 'wap_site_title' );
 
-/* Woocommerce customization
---------------------------------------------- */
+// Add additional custom style to site header
+function wap_site_title( $title ) {
+
+    	// Change $custom_title text as you wish
+	$custom_title = '<span class="custom-title">Fluid</span>';
+
+	// Don't change the rest of this on down
+
+	// If we're on the front page or home page, use `h1` heading, otherwise us a `p` tag
+	$tag = ( is_home() || is_front_page() ) ? 'h1' : 'p';
+
+	// Compose link with title
+	$inside = sprintf( '<a href="%s" title="%s">%s</a>', trailingslashit( home_url() ), esc_attr( get_bloginfo( 'name' ) ), $custom_title );
+
+	// Wrap link and title in semantic markup
+	$title = sprintf ( '<%s class="site-title" itemprop="headline">%s</%s>', $tag, $inside, $tag );
+	return $title;
+}
+
+//Displaying Category Headings on all Category Archive Pages in Genesis
+function themeprefix_category_header() {
+if ( is_category() )  {
+        echo '<h1 class="archive-title">';
+        echo single_cat_title();  
+        echo '</h1>';
+    }
+}
+add_action( 'genesis_before_loop' , 'themeprefix_category_header' );
+
+// Force Excerpts length to 30 caracters
+add_filter( 'excerpt_length', 'change_excerpt_length' );
+function change_excerpt_length($length) {
+    return 30; 
+}
+// Add Read More Link to Excerpts
+add_filter('excerpt_more', 'get_read_more_link');
+add_filter( 'the_content_more_link', 'get_read_more_link' );
+function get_read_more_link() {
+   return '...&nbsp;<a href="' . get_permalink() . '">[Les&nbsp;mer]</a>';
+}
+
+
+/* Manipulate the featured image */
+add_action( 'genesis_post_content', 'ibfy_post_image', 8 );
+function ibfy_post_image() {
+global $post;
+    if ( is_page() )
+        return; // Make pages act normal
+ 
+    //setup thumbnail image args to be used with genesis_get_image();
+    $size = 'medium'; // Change this to whatever add_image_size you want
+    $default_attr = array(
+            'class' => "alignright attachment-$size $size",
+            'alt'   => $post->post_title,
+            'title' => $post->post_title,
+        );
+ 
+    // This is the most important part!  Checks to see if the post has a Post Thumbnail assigned to it. You can delete the if conditional if you want and assume that there will always be a thumbnail
+    if ( has_post_thumbnail() && is_home() ) {
+        printf( '<a href="%s" title="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), genesis_get_image( array( 'size' => $size, 'attr' => $default_attr ) ) );
+    }
+ 
+}
+
+/**
+ * Register and Enqueue Primary Navigation Menu Script
+ * 
+ * @author Brad Potter
+ * 
+ * @link http://www.bradpotter.com
+ */
+function gst_primarymenu_script() {
+  	
+	wp_register_script( 'primary-menu', get_stylesheet_directory_uri() . '/lib/js/primarymenu.js', array('jquery'), '1.0.0', false );
+	wp_enqueue_script( 'primary-menu' );
+
+ }
+add_action('wp_enqueue_scripts', 'gst_primarymenu_script');
+
+
+
+// Both woo_breadcrumbs() and Yoast breadcrumbs need to be enabled in the WordPress admin for this to function.
+add_filter( 'woo_breadcrumbs', 'woo_custom_use_yoast_breadcrumbs' );
+function woo_custom_use_yoast_breadcrumbs ( $breadcrumbs ) {
+if ( function_exists( 'yoast_breadcrumb' ) ) {
+$before = '<div class="breadcrumb breadcrumbs woo-breadcrumbs"><div class="breadcrumb-trail">';
+$after = '</div></div>';
+$breadcrumbs = yoast_breadcrumb( $before, $after, false ); 
+}
+return $breadcrumbs;
+} // End woo_custom_use_yoast_breadcrumbs()
+
+/******-----End navigation and Accessibility config------*****/
+
+/******------------Woocommerce config--------------------*****/
 //* Removing woocommerce sub category thumbnails
 	function woocommerce_nested_category_products_content_section( $categories, $product_category_ids ) {
 		global $woocommerce, $wp_query, $wc_nested_category_layout;
@@ -184,119 +310,6 @@ function wc_remove_related_products( $args ) {
 }
 add_filter('woocommerce_related_products_args','wc_remove_related_products', 10); 
 
-/******* End Woocommerce customization************/
-
-//* Register Home Slider widget area
-genesis_register_sidebar( array(
-	'id'			=> 'home-slider',
-	'name'			=> 'Home Slider',
-	'description'	=> 'This is the home slider section'
-) );
-
-
-add_action( 'genesis_after_header', 'sk_home_featured' );
-/**
- * Display Home Slider widget area's contents below Navigation on homepage.
- *
- * @author Sridhar Katakam
- * @link   http://sridharkatakam.com/full-width-soliloquy-slider-genesis/
- */
-function sk_home_featured() {
-	if ( is_home() || is_front_page() ) {
-		genesis_widget_area( 'home-slider', array(
-			'before'	=> '<div class="home-slider widget-area">',
-			'after'		=> '</div>',
-		) );
-	}
-}
-// Force Excerpts length to 30 caracters
-add_filter( 'excerpt_length', 'change_excerpt_length' );
-function change_excerpt_length($length) {
-    return 30; 
-}
-// Add Read More Link to Excerpts
-add_filter('excerpt_more', 'get_read_more_link');
-add_filter( 'the_content_more_link', 'get_read_more_link' );
-function get_read_more_link() {
-   return '...&nbsp;<a href="' . get_permalink() . '">[Les&nbsp;mer]</a>';
-}
-/* Manipulate the featured image */
-add_action( 'genesis_post_content', 'ibfy_post_image', 8 );
-function ibfy_post_image() {
-global $post;
-    if ( is_page() )
-        return; // Make pages act normal
- 
-    //setup thumbnail image args to be used with genesis_get_image();
-    $size = 'medium'; // Change this to whatever add_image_size you want
-    $default_attr = array(
-            'class' => "alignright attachment-$size $size",
-            'alt'   => $post->post_title,
-            'title' => $post->post_title,
-        );
- 
-    // This is the most important part!  Checks to see if the post has a Post Thumbnail assigned to it. You can delete the if conditional if you want and assume that there will always be a thumbnail
-    if ( has_post_thumbnail() && is_home() ) {
-        printf( '<a href="%s" title="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), genesis_get_image( array( 'size' => $size, 'attr' => $default_attr ) ) );
-    }
- 
-}
-// Filter the title with a custom function
-add_filter('genesis_seo_title', 'wap_site_title' );
-
-// Add additional custom style to site header
-function wap_site_title( $title ) {
-
-    	// Change $custom_title text as you wish
-	$custom_title = '<span class="custom-title">Fluid</span>';
-
-	// Don't change the rest of this on down
-
-	// If we're on the front page or home page, use `h1` heading, otherwise us a `p` tag
-	$tag = ( is_home() || is_front_page() ) ? 'h1' : 'p';
-
-	// Compose link with title
-	$inside = sprintf( '<a href="%s" title="%s">%s</a>', trailingslashit( home_url() ), esc_attr( get_bloginfo( 'name' ) ), $custom_title );
-
-	// Wrap link and title in semantic markup
-	$title = sprintf ( '<%s class="site-title" itemprop="headline">%s</%s>', $tag, $inside, $tag );
-	return $title;
-}
-
-/**
- * Register and Enqueue Primary Navigation Menu Script
- * 
- * @author Brad Potter
- * 
- * @link http://www.bradpotter.com
- */
-function gst_primarymenu_script() {
-  	
-	wp_register_script( 'primary-menu', get_stylesheet_directory_uri() . '/lib/js/primarymenu.js', array('jquery'), '1.0.0', false );
-	wp_enqueue_script( 'primary-menu' );
-
- }
-add_action('wp_enqueue_scripts', 'gst_primarymenu_script');
-
-//Displaying Category Headings on all Category Archive Pages in Genesis
-function themeprefix_category_header() {
-if ( is_category() )  {
-        echo '<h1 class="archive-title">';
-        echo single_cat_title();  
-        echo '</h1>';
-    }
-}
-add_action( 'genesis_before_loop' , 'themeprefix_category_header' );
-
-// Both woo_breadcrumbs() and Yoast breadcrumbs need to be enabled in the WordPress admin for this to function.
-add_filter( 'woo_breadcrumbs', 'woo_custom_use_yoast_breadcrumbs' );
-function woo_custom_use_yoast_breadcrumbs ( $breadcrumbs ) {
-if ( function_exists( 'yoast_breadcrumb' ) ) {
-$before = '<div class="breadcrumb breadcrumbs woo-breadcrumbs"><div class="breadcrumb-trail">';
-$after = '</div></div>';
-$breadcrumbs = yoast_breadcrumb( $before, $after, false ); 
-}
-return $breadcrumbs;
-} // End woo_custom_use_yoast_breadcrumbs()
+/******------------End Woocommerce config--------------------*****/
 
 ?>
