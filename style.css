@@ -1993,7 +1993,6 @@ aside.widget-area.header-widget-area {
     padding-right: 5px;
 }
 
-
 /* Social Media Icons
 ------------------------------------------------------------ */
 
@@ -2005,13 +2004,14 @@ aside.widget-area.header-widget-area {
 }
 
 .facebook-button {
-    float: left;
+	display:inline-block;
     padding-right: 25px;
 }
 
 .gplus-button {
-  position: relative;
-  top: 100%;
-  transform: translateY(25%);
+	display:inline-block;
 
+}
+div#___plusone_0 {
+  vertical-align: bottom !important;
 }
