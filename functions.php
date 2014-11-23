@@ -222,6 +222,9 @@ function gst_primarymenu_script() {
  }
 add_action('wp_enqueue_scripts', 'gst_primarymenu_script');
 
+// Display 36 products per page. Goes in functions.php
+add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 36;' ), 20 );
+
 /******-----End navigation and Accessibility config------*****/
 
 /******------------Woocommerce config--------------------*****/
