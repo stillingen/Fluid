@@ -31,10 +31,10 @@ get_header( 'shop' ); ?>
 		
 		<div class="social-media-icons">
             <div class="facebook-button">
-                <div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
             </div>    
             <div class="gplus-button">
-                <div class="g-plusone" data-href="<?php the_permalink(); ?>" data-size="medium"></div>
+                <div class="g-plusone" data-size="medium"></div>
             </div>
         </div><!-- .social-media-icons -->
 	<?php
