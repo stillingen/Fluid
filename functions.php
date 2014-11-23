@@ -91,6 +91,10 @@ genesis_register_sidebar( array(
 	'description'	=> 'This is the home slider section'
 ) );
 
+//* Reordering redering order for footer header wiget(1), and footer widgets(10)
+remove_action( 'genesis_before_footer', 'genesis_footer_widget_areas' );
+add_action ('genesis_before_footer','genesis_footer_widget_areas', 10 );
+
 /******----End widget registration and config----------*****/
 
 
@@ -202,6 +206,7 @@ global $post;
  
 }
 
+
 /**
  * Register and Enqueue Primary Navigation Menu Script
  * 
@@ -216,19 +221,6 @@ function gst_primarymenu_script() {
 
  }
 add_action('wp_enqueue_scripts', 'gst_primarymenu_script');
-
-
-
-// Both woo_breadcrumbs() and Yoast breadcrumbs need to be enabled in the WordPress admin for this to function.
-add_filter( 'woo_breadcrumbs', 'woo_custom_use_yoast_breadcrumbs' );
-function woo_custom_use_yoast_breadcrumbs ( $breadcrumbs ) {
-if ( function_exists( 'yoast_breadcrumb' ) ) {
-$before = '<div class="breadcrumb breadcrumbs woo-breadcrumbs"><div class="breadcrumb-trail">';
-$after = '</div></div>';
-$breadcrumbs = yoast_breadcrumb( $before, $after, false ); 
-}
-return $breadcrumbs;
-} // End woo_custom_use_yoast_breadcrumbs()
 
 /******-----End navigation and Accessibility config------*****/
 
