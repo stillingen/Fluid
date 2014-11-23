@@ -1992,3 +1992,26 @@ aside.widget-area.header-widget-area {
     padding-left: 5px;
     padding-right: 5px;
 }
+
+
+/* Social Media Icons
+------------------------------------------------------------ */
+
+
+.social-media-icons {
+    display: block;
+    padding-bottom: 26px;
+    padding-bottom: 2.6em;
+}
+
+.facebook-button {
+    float: left;
+    padding-right: 25px;
+}
+
+.gplus-button {
+  position: relative;
+  top: 100%;
+  transform: translateY(25%);
+
+}
