@@ -1500,6 +1500,7 @@ Media Queries
 	.sidebar-secondary,
 	.sidebar-sidebar-content .content,
 	.sidebar-sidebar-content .content-sidebar-wrap,
+	.widget-area,
 	.site-header,
 	.site-inner,
 	.content-sidebar {
@@ -1963,13 +1964,10 @@ Left Aligned Primary Nav Extra
 	padding-right: 5px;
 
 }
-aside.widget-area.header-widget-area {
-    width: auto !important;
-}
-
-aside.widget-area.header-widget-area {
-  position: relative;
-  top: 50%;
+.header-widget-area {
+  	width: auto !important;
+  	position: relative;
+  	top: 50%;
   transform: translateY(20%);
 }
 
@@ -2013,9 +2011,8 @@ aside.widget-area.header-widget-area {
 
 }
 div#___plusone_0 {
-  vertical-align: bottom !important;
+  	vertical-align: bottom !important;
 }
-
 iframe {
- max-width: none;
-}
+	max-width: none;
+ }
