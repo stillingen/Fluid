@@ -323,6 +323,23 @@ function wc_wc20_variation_price_format( $price, $product ) {
 	return $price;
 }
 
+// Social sharing for Woocommerce product page
+add_action('woocommerce_after_single_product_summary', 'child_social_media_icons', 10, 2);
+add_action( 'genesis_after_entry_content', 'child_social_media_icons', 5 );
+
+function child_social_media_icons() {
+if ( is_single() || is_page() ) { ?>
+	<div class="social-media-icons">
+            <div class="facebook-button">
+                <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+            </div>    
+            <div class="gplus-button">
+                <div class="g-plusone" data-size="medium"></div>
+            </div>
+        </div><!-- .social-media-icons -->
+<?php }
+}
 /******------------End Woocommerce config--------------------*****/
 
+/******------------Misc config--------------------*****/
 ?>
