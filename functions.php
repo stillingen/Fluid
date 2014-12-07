@@ -340,6 +340,48 @@ if ( is_single() || is_page() ) { ?>
 <?php }
 }
 /******------------End Woocommerce config--------------------*****/
+//* Make Font Awesome available
+add_action( 'wp_enqueue_scripts', 'enqueue_font_awesome' );
+function enqueue_font_awesome() {
+ 
+	wp_enqueue_style( 'font-awesome', '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' );
+ 
+}
+ 
+//* Customize search form input box text
+add_filter( 'genesis_search_text', 'sp_search_text' );
+function sp_search_text( $text ) {
+	return esc_attr( 'Search' );
+}
+ 
+//* Customize search form input button text
+add_filter( 'genesis_search_button_text', 'sk_search_button_text' );
+function sk_search_button_text( $text ) {
+ 
+	return esc_attr( '&#xf002;' );
+ 
+}
 
-/******------------Misc config--------------------*****/
+/******------------Search results config--------------------*****/
+add_filter( 'genesis_search_text', 'wpselect_search_text');
+ function wpselect_search_text() {
+ return esc_attr__( 'Google Search ...', 'genesis' );
+ }
+
+ // Customize Search Form
+add_filter( 'genesis_search_form', 'wpselect_search_form', 10, 4);
+function wpselect_search_form( $form, $search_text, $button_text, $label ) {
+$onfocus = " onfocus=\"if (this.value == '$search_text') {this.value = '';}\"";
+$onblur = " onblur=\"if (this.value == '') {this.value = '$search_text';}\"";
+$form = '
+<form method="get" class="searchform search-form" action="' . home_url() . '/search/" >
+' . $label . '
+<input type="text" value="' . esc_attr( $search_text ) . '" name="q" class="s search-input"' . $onfocus . $onblur . ' />
+<input type="submit" class="searchsubmit search-submit" value="' . esc_attr( $button_text ) . '" />
+</form>
+';
+return $form;
+}
+/******------------End search results config--------------------*****/
+
 ?>

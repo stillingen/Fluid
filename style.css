@@ -1960,7 +1960,7 @@ Left Aligned Primary Nav Extra
 /* Global elements custom styling
 --------------------------------------------- */
 .genesis-nav-menu {
-	text-align: right !important;
+	text-align: left; !important;
 	padding-right: 5px;
 
 }
@@ -2014,5 +2014,47 @@ div#___plusone_0 {
   	vertical-align: bottom !important;
 }
 iframe {
-	max-width: none;
+	max-width: 100%;
  }
+/* Search input field
+------------------------------------------------------------ */
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* Firefox 18- */
+input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
+
+.genesis-nav-menu .search-form input[type="search"] {
+	padding-right: 3rem;
+	-moz-transition: 400ms width ease;
+    -webkit-transition-duration: 400ms;
+    -webkit-transition-property: width;
+    -webkit-transition-timing-function: ease;
+    -o-transition-duration: 400ms;
+    -o-transition-property: width;
+    -o-transition-timing-function: ease;
+    width: 92px;
+}
+
+.genesis-nav-menu .search-form input[type="search"]:focus {
+	width: 189px;
+}
+
+.search-form {
+	position: relative;
+}
+
+.search-form input[type="submit"] {
+	position: absolute;
+	font-family: FontAwesome;
+	clip: inherit;
+	width: 16px;
+	height: 16px;
+	background: transparent;
+	color: #999;
+	right: 10px;
+	top: 18px;
+}
+
+.search-form input[type="submit"]:hover {
+	color: #F15123;
+}
